@@ -1,0 +1,85 @@
+@use "../global" as *;
+
+.footer {
+  padding-top: fluidSize(7.5, 3.75, 120, 24.375);
+  background: #fffcee;
+  &__container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: fluidSize(7.5, 5, 120, 24.375);
+    flex-direction: column;
+    width: 100%;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: fluidSize(7.5, 2.5, 120, 24.375);
+    @include mq(lg, max) {
+      flex-direction: column;
+    }
+    &-item {
+      a {
+        color: #1d333d;
+        text-align: center;
+        leading-trim: both;
+        text-edge: cap;
+        font-family: "Lilita One";
+        font-size: fluidSize(1.5, 1.25, 120, 24.375);
+        font-style: normal;
+        font-weight: 400;
+        line-height: fluidSize(3, 1.25, 120, 24.375);
+        letter-spacing: 0.15rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__info {
+    text-align: center;
+    img {
+      width: 5.125rem;
+      height: 4.375rem;
+      object-fit: cover;
+      margin: 0 auto;
+      margin-bottom: 1.88rem;
+    }
+    &-title {
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.5, 1.25, 120, 24.375);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.5rem; /* 100% */
+      text-transform: uppercase;
+      margin-bottom: 1.88rem;
+    }
+    &-address {
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1, 0.875, 120, 24.375);
+      font-style: normal;
+      font-weight: 500;
+      line-height: fluidSize(1.5, 1.25, 120, 24.375);
+      text-transform: uppercase;
+      margin-bottom: 1.88rem;
+    }
+    &-copy {
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 0.75rem; /* 100% */
+      padding: 1.25rem 0;
+    }
+  }
+}

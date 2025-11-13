@@ -1,0 +1,45 @@
+@use "../../global" as *;
+
+.lp {
+  &__btn01 {
+    &__contents {
+      background: #d0837d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+      border-radius: 3.13rem;
+    }
+    &__text {
+      color: #fff;
+      text-align: center;
+      font-size: 0.6875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    img {
+      width: 1.125rem;
+      height: 1.125rem;
+      object-fit: cover;
+    }
+    &:hover {
+      img {
+        transform: rotate(90deg);
+      }
+    }
+    input {
+      width: 100%;
+      padding: 0.7rem 0.5rem 0.7rem 1.25rem;
+      border-radius: 3.13rem;
+      background: #d0837d;
+      color: #fff;
+      text-align: center;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+}

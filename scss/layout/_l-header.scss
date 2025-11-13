@@ -1,0 +1,108 @@
+@use "../global" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: fluidSize(5, 1.87, 120, 24.375) fluidSize(3.75, 1.88, 120, 24.375);
+  pointer-events: none;
+  z-index: 5;
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__logo {
+    pointer-events: all;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    img {
+      width: fluidSize(5.125, 2.92856, 120, 24.375);
+      height: auto;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__global-menu {
+    @include mq(lg, max) {
+      display: none;
+    }
+  }
+}
+
+.global-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: fluidSize(2.5, 1, 120, 24.375);
+  &__item {
+    pointer-events: all;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s all ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.menu-toggle {
+  pointer-events: all;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mq(lg, min) {
+    display: none !important;
+  }
+}
+.hamburger {
+  display: none;
+  @include mq(lg, max) {
+    display: block;
+  }
+}
+
+.hamburger {
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fffcee;
+  transition: 0.3s all ease-in-out;
+  transform: scale(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.open {
+    transform: scale(1);
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  &__item {
+    text-align: center;
+    font-family: "Lilita One";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.5rem; /* 100% */
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    a {
+      color: #1d333d;
+      transition: 0.3s all ease-in-out;
+      &:hover {
+        color: #e5005a;
+      }
+    }
+  }
+}

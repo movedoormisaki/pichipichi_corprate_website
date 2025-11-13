@@ -1,0 +1,710 @@
+@use "../../global" as *;
+
+.top {
+  background: var(--background);
+  overflow: hidden;
+}
+.fv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: fluidSize(25, 17.5, 120, 24.375) fluidSize(2.5, 1.87, 120, 24.375);
+  position: relative;
+  &__logo {
+    z-index: 3;
+    img {
+      width: fluidSize(41.3125, 20.625, 120, 24.375);
+      @include mq(md, max) {
+        width: 100%;
+      }
+    }
+  }
+  &__circle {
+    z-index: 2;
+    &-yellow01 {
+      top: 5rem;
+      left: fluidSize(13.7, 0, 120, 24.375);
+      width: fluidSize(20, 5, 120, 24.375);
+      height: auto;
+      @include mq(md, max) {
+        left: -1.25rem;
+      }
+    }
+    &-pink {
+      top: 15rem;
+      right: fluidSize(8.75, 0, 120, 24.375);
+      width: fluidSize(25, 15, 120, 24.375);
+      @include mq(md, max) {
+        top: initial;
+        right: -2.19rem;
+        bottom: 3rem;
+      }
+    }
+    &-yellow02 {
+      bottom: fluidSize(10, 3.75, 120, 24.375);
+      left: fluidSize(40, 7.81, 120, 24.375);
+      @include mq(md, max) {
+        bottom: 1rem;
+      }
+    }
+  }
+}
+
+.mission {
+  @include mq(lg, max) {
+    margin-bottom: 5rem;
+    padding-top: 3rem;
+  }
+  &__wrapper {
+    display: flex;
+    gap: fluidSize(4.63, 1.87, 120, 24.375);
+    justify-content: center;
+    @include mq(lg, max) {
+      flex-direction: column;
+      width: 80%;
+      margin: 0 auto;
+    }
+    @include mq(md, max) {
+      width: 100%;
+      gap: fluidSize(5, 1.87, 48, 24.375);
+    }
+  }
+  &__title {
+    margin-top: fluidSize(7.5, 0, 120, 64);
+    @include mq(lg, max) {
+      padding: 0 1.88rem;
+    }
+    h2 {
+      color: #fffcee;
+    }
+    p {
+      color: #fffcee;
+    }
+  }
+  &__circle_bg {
+    position: relative;
+    width: fluidSize(49.5, 30, 120, 24.375);
+    height: fluidSize(49.5, 30, 120, 24.375);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq(md, max) {
+      width: 100%;
+    }
+    &::after {
+      @include mq(md, max) {
+        content: "";
+        width: 105%;
+        aspect-ratio: 1/1;
+        height: auto;
+        position: absolute;
+        background: #fffcee;
+        border-radius: 50%;
+        z-index: 0;
+      }
+      @include mq(sm, max) {
+        width: 120%;
+      }
+    }
+  }
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    h3 {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(2.5, 2, 120, 24.375);
+      font-style: normal;
+      font-weight: 900;
+      line-height: fluidSize(4, 2.75, 120, 24.375);
+    }
+    p {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.25, 1, 120, 24.375);
+      font-style: normal;
+      font-weight: 500;
+      line-height: fluidSize(3, 2, 120, 24.375);
+    }
+  }
+  &__cont {
+    width: fluidSize(30, 20, 120, 24.375);
+    z-index: 1;
+  }
+  &__btn {
+    margin-top: fluidSize(1.25, 0, 120, 24.375);
+    width: fluidSize(13.5, 9.6875, 120, 24.375) !important;
+    height: fluidSize(3.75, 2.5, 120, 24.375) !important;
+    border-radius: 1.875rem !important;
+  }
+}
+
+.we-do {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1.87rem;
+    z-index: 1;
+    @include mq(lg, max) {
+      flex-direction: column-reverse;
+      width: 80%;
+      margin: 0 auto;
+    }
+    @include mq(md, max) {
+      width: 100%;
+      gap: fluidSize(5, 1.5, 48, 24.375);
+    }
+  }
+  &__title {
+    margin-top: fluidSize(10, 0, 120, 64);
+    z-index: 2;
+    @include mq(lg, max) {
+      padding: 0 1.88rem;
+    }
+    h2 {
+      color: #fffcee;
+    }
+    p {
+      color: #fffcee;
+    }
+  }
+  &__circle_bg {
+    position: relative;
+    width: fluidSize(55.875, 33.75, 120, 24.375);
+    height: fluidSize(55.875, 33.75, 120, 24.375);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq(md, max) {
+      width: 100%;
+    }
+    &::after {
+      @include mq(md, max) {
+        content: "";
+        width: 105%;
+        aspect-ratio: 1/1;
+        height: auto;
+        position: absolute;
+        background: #fffcee;
+        border-radius: 50%;
+        z-index: 0;
+      }
+      @include mq(sm, max) {
+        width: 120%;
+      }
+    }
+  }
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: fluidSize(2.5, 1.25, 120, 24.375);
+  }
+  &__cont {
+    width: fluidSize(32, 22, 120, 24.375);
+    z-index: 1;
+    @include mq(md, max) {
+      width: 100%;
+      padding: 0 1.88rem;
+    }
+  }
+  &__circle-pink {
+    top: -7.5rem;
+    left: 6.35rem;
+    @include mq(md, max) {
+      left: initial;
+      right: 3.5rem;
+    }
+  }
+  &__circle-yellow {
+    bottom: 1rem;
+    right: 9.21rem;
+    @include mq(md, max) {
+      left: initial;
+      right: 3.5rem;
+    }
+  }
+}
+
+.service {
+  padding-top: fluidSize(10, 5, 120, 24.375);
+  margin-bottom: fluidSize(10, 5, 120, 24.375);
+  &__title {
+    align-items: center !important;
+    margin-bottom: fluidSize(3.75, 2.5, 120, 24.375);
+  }
+  &__slick {
+    @include mq(lg, min) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: fluidSize(1.5, 0.5, 120, 24.375);
+    }
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 12rem;
+    width: fluidSize(24, 17.5, 120, 24.375);
+    height: fluidSize(42.5, 30, 120, 24.375);
+    padding: 0 fluidSize(3.44, 1.56, 120, 24.375);
+    padding-top: fluidSize(6.25, 4.37, 120, 24.375);
+    position: relative;
+    @include mq(lg, max) {
+      width: 17.5rem;
+    }
+    &:nth-child(1) {
+      background: #ffe25a;
+    }
+    &:nth-child(2) {
+      background: #80d9ff;
+    }
+    &:nth-child(3) {
+      background: #ffa0c6;
+    }
+    &::before {
+      content: "";
+      background: url(./img/circle_line_shape02.svg);
+      position: absolute;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 5%;
+      left: 15%;
+      width: fluidSize(6, 5, 120, 24.375);
+      height: fluidSize(4.3, 3.3, 120, 24.375);
+    }
+    &-icon {
+      margin-bottom: fluidSize(1, 0.45, 120, 24.375);
+      img {
+        width: fluidSize(7.5, 5, 120, 24.375);
+        height: auto;
+      }
+    }
+    &-content {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2rem auto 1fr auto;
+      align-items: center;
+      justify-items: center;
+      grid-template-areas:
+        "subtitle"
+        "title"
+        "detail"
+        "readmore";
+    }
+    &-subtitle {
+      grid-area: subtitle;
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1, 0.875, 120, 24.375);
+      font-style: normal;
+      font-weight: 900;
+      line-height: fluidSize(1.5, 0.875, 120, 24.375);
+    }
+    &-title {
+      grid-area: title;
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(2, 1.5, 120, 24.375);
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 900;
+      line-height: fluidSize(2, 1.5, 120, 24.375);
+      margin-bottom: fluidSize(2.5, 1.63, 120, 24.375);
+    }
+    &-detail {
+      grid-area: detail;
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1, 0.875, 120, 24.375);
+      font-style: normal;
+      font-weight: 500;
+      line-height: fluidSize(2, 1.75, 120, 24.375);
+      margin-bottom: fluidSize(2.5, 1.5, 120, 24.375);
+    }
+    &-readmore {
+      grid-area: readmore;
+      border-bottom: 1px solid #1d333d;
+      a {
+        color: #1d333d;
+        text-align: center;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(1.25, 1, 120, 24.375);
+        font-style: normal;
+        font-weight: 800;
+        line-height: 1.25rem; /* 100% */
+        text-transform: uppercase;
+      }
+    }
+  }
+  [class^="swiper-button-"]::after {
+    content: "";
+    display: none;
+    border: none;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: block;
+  width: fluidSize(10, 3.125, 120, 24.375);
+  height: fluidSize(10, 3.125, 120, 24.375);
+  background: transparent;
+  top: 50%;
+  transform: translate(0%, 50%);
+  z-index: 3;
+  padding: 0;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+@include mq(lg, min) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+.section_wave {
+  display: block;
+  &.wave_top {
+    transform: translateY(1px);
+  }
+  &.wave_bottom {
+    transform: translateY(-1px);
+  }
+  @include mq(md, max) {
+    width: 180%;
+  }
+}
+
+.news {
+  padding-top: fluidSize(10, 3.75, 120, 24.375);
+  margin-bottom: fluidSize(12.5, 5, 120, 24.375);
+  &__wrapper {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: fluidSize(3.75, 1.25, 120, 24.375);
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__title {
+    position: relative;
+    align-items: center !important;
+    width: 100%;
+    h2,
+    p {
+      color: #1d333d !important;
+    }
+  }
+  &__btn {
+    position: absolute !important;
+    bottom: 0;
+    right: 0;
+    @include mq(lg, max) {
+      position: relative !important;
+      bottom: initial;
+      right: initial;
+      margin: 0 0 0 auto;
+    }
+  }
+  &__contents {
+    display: flex;
+    flex-direction: column;
+    gap: fluidSize(2.5, 1.25, 120, 24.375);
+    width: 100%;
+  }
+  &__item {
+    overflow: hidden;
+    background: #fff;
+    border-radius: fluidSize(5, 1, 120, 24.375);
+    width: 100%;
+    filter: drop-shadow(8px 8px 0px #ffe982);
+    transition: all ease-in-out 0.3s;
+    &:hover {
+      transform: translate(8px, 8px);
+      filter: drop-shadow(0px 0px 0px #ffe982);
+    }
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &-thumbnail {
+      img {
+        display: block;
+        width: fluidSize(11.25, 9.6875, 120, 24.375);
+        height: 7.5rem;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: fluidSize(1, 0.62, 120, 24.375);
+      padding: fluidSize(1.56, 1.25, 120, 24.375) fluidSize(1.5, 1.25, 120, 24.375);
+      flex-direction: column;
+      p {
+        color: #1d333d;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(1, 0.875, 120, 24.375);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1rem; /* 100% */
+      }
+      h4 {
+        color: #1d333d;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(1.25, 1, 120, 24.375);
+        font-style: normal;
+        font-weight: 800;
+        line-height: 1.25rem; /* 100% */
+      }
+    }
+  }
+}
+
+.member {
+  margin-bottom: fluidSize(3.81, 2.44, 120, 24.375);
+  &__title {
+    align-items: center !important;
+    margin-bottom: fluidSize(3.81, 1.25, 120, 24.375);
+    h2,
+    p {
+      color: #1d333d !important;
+    }
+  }
+  &__cards {
+    display: flex;
+    gap: fluidSize(1.5, 1.25, 120, 24.375);
+    align-items: flex-start;
+    justify-content: center;
+    @include mq(md, max) {
+      flex-wrap: wrap;
+    }
+  }
+  &__card {
+    width: calc(100% / 4 - 2%);
+    border-radius: fluidSize(3, 2, 120, 24.375);
+    overflow: hidden;
+    background: #fdd000;
+    @include mq(md, max) {
+      width: calc(100% / 2 - 3%);
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+    &-overflow {
+      height: fluidSize(17.625, 9.6875, 120, 24.375);
+      width: 100%;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: 0.3s all ease-in-out;
+    }
+    &-link {
+      width: 100%;
+      display: block;
+    }
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: fluidSize(1.87, 0.94, 120, 24.375);
+      p {
+        color: #1d333d;
+        text-align: center;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(1, 0.875, 120, 24.375);
+        font-style: normal;
+        font-weight: 800;
+        line-height: fluidSize(1, 0.875, 120, 24.375);
+        margin-bottom: fluidSize(1, 0.5, 120, 24.375);
+      }
+      h3 {
+        color: #1d333d;
+        text-align: center;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(2, 1.5, 120, 24.375);
+        font-style: normal;
+        font-weight: 800;
+        line-height: fluidSize(2, 1.5, 120, 24.375);
+      }
+    }
+  }
+}
+
+.bana {
+  padding-bottom: fluidSize(10, 5, 120, 24.375);
+  img {
+    width: 100%;
+  }
+}
+
+.contact {
+  margin-top: fluidSize(10, 3.75, 120, 24.375);
+  padding-bottom: fluidSize(7.5, 5, 120, 24.375);
+  &__wrapper {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: fluidSize(3.75, 1.25, 120, 24.375);
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: fluidSize(7.5, 5, 120, 24.375);
+  }
+  &__title {
+    position: relative;
+    align-items: center !important;
+    width: 100%;
+  }
+  &__contents {
+    width: 100%;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: fluidSize(2.69, 1.44, 120, 24.375);
+      &_title {
+        color: #1d333d;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(2, 2.5, 120, 24.375);
+        font-style: normal;
+        font-weight: 800;
+        line-height: fluidSize(1.5, 1.25, 120, 24.375);
+        margin-bottom: 0;
+      }
+    }
+  }
+  .form_group {
+    label {
+      color: #fffcee;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.5, 1.25, 120, 24.375);
+      font-style: normal;
+      font-weight: 800;
+      line-height: fluidSize(1.5, 1.25, 120, 24.375);
+      margin-bottom: 0;
+    }
+    &__tag {
+      width: fluidSize(3.75, 3.125, 120, 24.375);
+      height: fluidSize(1.875, 1.5625, 120, 24.375);
+      border-radius: 0.9375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1, 0.875, 120, 24.375);
+      font-style: normal;
+      font-weight: 800;
+      line-height: fluidSize(1, 0.875, 120, 24.375);
+    }
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.63rem;
+      margin-bottom: 0.63rem;
+    }
+    &__required {
+      background: #fdd000;
+    }
+    &__optional {
+      background: #fff;
+    }
+    &__control {
+      width: 100%;
+      border-radius: fluidSize(2.5, 1.875, 120, 24.375);
+      background: #fffcee;
+      padding: fluidSize(1.87, 1.25, 120, 24.375) fluidSize(2.5, 1.88, 120, 24.375);
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.25, 1.125, 120, 24.375);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.25rem;
+      &::placeholder {
+        color: #ddd !important;
+      }
+    }
+    &__checkbox {
+      width: 100%;
+      border-radius: fluidSize(2.5, 1.875, 120, 24.375);
+      background: #fffcee;
+      padding: fluidSize(1.87, 1.25, 120, 24.375) fluidSize(2.5, 1.88, 120, 24.375);
+      .wpcf7-list-item {
+        margin-left: 0;
+        label {
+          color: #1d333d;
+          font-family: "M PLUS Rounded 1c";
+          font-size: 1.25rem;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 1.25rem; /* 100% */
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        input {
+          -moz-transform: scale(1.4);
+          -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+        }
+        .wpcf7-list-item-label {
+          margin-left: 0.75rem;
+        }
+      }
+      .wpcf7-checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: fluidSize(2.5, 1, 120, 24.375);
+        @include mq(lg, max) {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+  .form_submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .wpcf7-submit {
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.125, 1, 120, 24.375);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.125rem; /* 100% */
+      letter-spacing: 0.5625rem;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@use "sass:math";
+@use "sass:map";
+
+//-----初期設定----//
+$unit: 1rem; //使用する単位の設定(px or rem)
+$baseSize: 16px; //remを使うためのbasesize
+
+$unitSize: (
+  1px: 1,
+  1rem: stripUnit($baseSize),
+);
+
+/*
+追加
+---------------------------*/
+$baseFontSize: 16;
+
+@function fz($fontSize) {
+  @return math.div($fontSize, 16) * 1rem;
+}
+
+@function stripUnit($num) {
+  //単位を取り除く
+  @return math.div($num, ($num * 0 + 1));
+}
+
+// 線形的に値を変換する
+@function fluidSize($maxNum, $minNum, $maxBreakpoint, $minBreakpoint) {
+  $minUnit: $minNum * $unit;
+  $maxUnit: $maxNum * $unit;
+  $slope: math.div(($maxNum - $minNum), ($maxBreakpoint - $minBreakpoint));
+  $calc__b: ($minBreakpoint * -1 * $slope + $minNum) * $unit;
+  $calc__vw: ($slope * 100) * 1vw;
+  @return clamp($minUnit, $calc__b + $calc__vw, $maxUnit);
+}

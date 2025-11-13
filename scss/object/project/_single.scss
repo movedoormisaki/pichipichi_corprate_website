@@ -1,0 +1,110 @@
+@use "../../global" as *;
+
+.single {
+  background: var(--background);
+  overflow: hidden;
+  max-width: initial !important;
+  &__header {
+    height: fluidSize(15, 8, 120, 24.375);
+    width: 100%;
+    background: transparent;
+  }
+  &__wrapper {
+    max-width: 50rem;
+    width: 100%;
+    padding-top: 2.5rem;
+    padding-bottom: fluidSize(7.5, 5, 120, 24.375);
+    margin: 0 auto;
+  }
+  &__time {
+    color: #1d333d;
+    font-family: "M PLUS Rounded 1c";
+    font-size: fluidSize(1, 0.875, 120, 24.375);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1rem; /* 100% */
+    text-transform: uppercase;
+    margin-bottom: fluidSize(1.88, 1, 120, 24.375);
+  }
+  &__title {
+    h1 {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(2.5, 2, 120, 24.375);
+      font-style: normal;
+      font-weight: 900;
+      line-height: 2.5rem; /* 100% */
+    }
+    margin-bottom: fluidSize(1.87, 1.25, 120, 24.375);
+  }
+  figure.p-articleThumb {
+    border-radius: 2.5rem;
+    overflow: hidden;
+  }
+  &__content {
+    p {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.25, 1, 120, 24.375);
+      font-style: normal;
+      font-weight: 500;
+      line-height: fluidSize(3, 2, 120, 24.375); /* 240% */
+    }
+  }
+  &__footer {
+    padding-top: fluidSize(5.5, 2.5, 120, 24.375);
+    padding-bottom: fluidSize(10, 5, 120, 24.375);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__btn {
+    width: fluidSize(24, 11.25, 120, 24.375);
+    height: fluidSize(3.75, 2.5, 120, 24.375);
+    border-radius: fluidSize(1.875, 1.25, 120, 24.375);
+    background: #fdd000;
+    position: relative;
+    transition: 0.3 all ease-in-out;
+    &:after {
+      content: "";
+      background: url(./img/arrow_black.svg);
+      transform: rotate(180deg);
+      position: absolute;
+      top: 50%;
+      left: fluidSize(2.5, 1, 120, 24.375);
+      transform: translate(-50%, -50%) rotate(180deg);
+      width: fluidSize(0.75, 0.625, 120, 24.375);
+      height: fluidSize(0.75, 0.625, 120, 24.375);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    a {
+      width: 100%;
+      height: 100%;
+      color: #1d333d;
+      text-align: center;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.5, 1, 120, 24.375);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.125rem; /* 75% */
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .c-categoryList {
+    color: #e5005a !important;
+  }
+  .c-categoryList__link {
+    background-color: #e5005a;
+    color: #fff;
+    font-family: "M PLUS Rounded 1c";
+  }
+}

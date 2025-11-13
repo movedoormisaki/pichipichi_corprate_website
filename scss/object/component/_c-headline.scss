@@ -1,0 +1,59 @@
+@use "../../global" as *;
+
+.c-headline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: fluidSize(2.5, 1.25, 120, 24.375);
+  h2,
+  span {
+    color: #fffcee;
+    font-family: "Lilita One";
+    font-size: fluidSize(5, 3, 120, 24.375);
+    font-style: normal;
+    font-weight: 400;
+    line-height: fluidSize(5, 3, 120, 24.375); /* 100% */
+    text-transform: uppercase;
+  }
+  span:before {
+    content: " ";
+    @include mq(md, min) {
+      content: "\A";
+      white-space: pre;
+    }
+  }
+  .h2-subtitle {
+    color: #fffcee;
+    font-family: "M PLUS Rounded 1c";
+    font-size: fluidSize(1.25, 1, 120, 24.375);
+    font-style: normal;
+    font-weight: 900;
+    line-height: fluidSize(1.25, 1, 120, 24.375);
+    text-transform: uppercase;
+  }
+}
+
+.low-c-headline {
+  padding-top: fluidSize(12, 8, 120, 24.375);
+  padding-bottom: fluidSize(4.5, 1.88, 120, 24.375);
+  h1 {
+    color: #fffcee;
+    font-family: "Lilita One";
+    font-size: fluidSize(6, 4, 120, 24.375);
+    font-style: normal;
+    font-weight: 400;
+    line-height: fluidSize(5, 4, 120, 24.375); /* 83.333% */
+    text-transform: uppercase;
+    margin-bottom: fluidSize(2.5, 1.25, 120, 24.375);
+  }
+  p {
+    color: #fffcee;
+    font-family: "M PLUS Rounded 1c";
+    font-size: fluidSize(1.5, 1.25, 120, 24.375);
+    font-style: normal;
+    font-weight: 900;
+    line-height: fluidSize(1.25, 1, 120, 24.375); /* 83.333% */
+    text-transform: uppercase;
+  }
+}

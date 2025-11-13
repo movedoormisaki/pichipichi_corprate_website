@@ -1,0 +1,35 @@
+@use "../global" as *;
+
+:root {
+  --base-Width-Pc: 1920px;
+  --base-width-Sp: 390px;
+  --base-font-size: 16px;
+}
+
+html {
+  font-size: $baseFontSize + px;
+  font-size: calc(var(--base-font-size) * (100vw / var(--base-Width-Pc)));
+}
+
+/* Animations */
+@keyframes ani {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+.bg {
+  background-image: linear-gradient(rgba(255, 255, 255, 1) 0px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 1) 0px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  width: 100%;
+  animation: ani 50s linear infinite;
+  &-white {
+    background: #fffcee;
+    width: 100%;
+  }
+}

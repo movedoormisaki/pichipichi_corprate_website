@@ -1,0 +1,12 @@
+@use "../global" as *;
+
+:root {
+  --base-Width-Pc: 1920px;
+  --base-width-Sp: 390px;
+  --base-font-size: 16px;
+}
+
+html {
+  font-size: $baseFontSize + px;
+  font-size: calc(var(--base-font-size) * (100vw / var(--base-Width-Pc)));
+}

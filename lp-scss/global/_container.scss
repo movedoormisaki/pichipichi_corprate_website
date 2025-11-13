@@ -1,0 +1,13 @@
+@use "./mixin" as *;
+@use "../global/function" as *;
+
+:root {
+  .lp__container {
+    max-width: 71.5rem;
+    padding: 0 1.25rem;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+}

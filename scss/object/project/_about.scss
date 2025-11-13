@@ -1,0 +1,136 @@
+@use "../../global" as *;
+
+.about {
+  background: var(--background);
+  overflow: hidden;
+  .circle {
+    z-index: 0;
+  }
+  &__container {
+    z-index: 1;
+    position: relative;
+  }
+  .bg-white {
+    position: relative;
+  }
+  &__circle-yellow01 {
+    left: fluidSize(21.5, 3, 120, 24.375);
+    top: fluidSize(10, 0.62, 120, 24.375);
+    width: fluidSize(25, 10, 120, 24.375);
+    @include mq(md, max) {
+      right: -2.6rem;
+    }
+  }
+  &__circle-pink {
+    right: fluidSize(7.5, 3, 120, 24.375);
+    top: fluidSize(30, 22.5, 120, 24.375);
+    width: fluidSize(45, 15, 120, 24.375);
+    @include mq(md, max) {
+      right: -2.6rem;
+    }
+  }
+  &__circle-yellow02 {
+    left: fluidSize(18.75, 5.5, 120, 24.375);
+    bottom: fluidSize(32, 24, 120, 24.375);
+    width: fluidSize(15, 5, 120, 24.375);
+  }
+  &__content {
+    padding-top: 7rem;
+    padding-bottom: fluidSize(15, 5, 120, 24.375);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: fluidSize(20, 10, 120, 24.375);
+    flex-direction: column;
+    max-width: 50rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  &__group {
+    p.subtitle {
+      color: #e5005a;
+      font-family: "Lilita One";
+      font-size: fluidSize(1.5, 1.25, 120, 24.375);
+      font-style: normal;
+      font-weight: 400;
+      line-height: fluidSize(2.5, 1.25, 120, 24.375); /* 166.667% */
+      text-transform: uppercase;
+      margin-bottom: fluidSize(2.5, 1.25, 120, 24.375);
+    }
+    h2 {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(2.5, 2, 120, 24.375);
+      font-style: normal;
+      font-weight: 900;
+      line-height: fluidSize(4, 2.75, 120, 24.375); /* 160% */
+      margin-bottom: fluidSize(2.5, 1.25, 120, 24.375);
+    }
+    p {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.25, 1, 120, 24.375);
+      font-style: normal;
+      font-weight: 500;
+      line-height: fluidSize(3, 2, 120, 24.375); /* 240% */
+    }
+  }
+  &__mission,
+  &__story {
+    margin-left: fluidSize(6.37, 3, 120, 24.375);
+    @include mq(md, max) {
+      margin-left: auto;
+    }
+  }
+
+  &__info {
+    padding: fluidSize(10, 3.75, 120, 24.375) 0;
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: fluidSize(3.75, 1.88, 120, 24.375);
+      max-width: 50rem;
+      width: 100%;
+      margin: 0 auto;
+    }
+    &-contents {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: fluidSize(1.25, 0.63, 120, 24.375);
+    }
+    &-group {
+      border-radius: 2.5rem;
+      background: #fffcee;
+      width: 100%;
+      display: grid;
+      grid-template-columns: fluidSize(11.25, 4.8125, 120, 24.375) 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "title detail";
+      padding: 0 fluidSize(6.38, 1.25, 120, 24.375);
+      padding-top: fluidSize(1.75, 1.31, 120, 24.375);
+      padding-bottom: fluidSize(1.75, 1.31, 120, 24.375);
+      p {
+        color: #1d333d;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(1.5, 1.125, 120, 24.375);
+        font-style: normal;
+        font-weight: 800;
+        line-height: fluidSize(2, 1.5, 120, 24.375); /* 100% */
+        text-transform: uppercase;
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+    &-title {
+      grid-area: title;
+    }
+    &-detail {
+      grid-area: detail;
+    }
+  }
+}

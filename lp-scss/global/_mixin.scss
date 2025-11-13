@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "sass:math";
+@use "./function" as *;
+
+$mq-breakpoints: (
+  "xs": 390px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1284px,
+  "xl-l": 1420px,
+  "xxl": 1600px,
+  "xxxl": 1920px,
+) !default;
+
+// メディアクエリ
+@mixin mq($breakpoint: md, $rule: min) {
+  $breakpoint: map.get($mq-breakpoints, $breakpoint);
+
+  @if $rule ==max {
+    $breakpoint: $breakpoint - 1px;
+  }
+
+  @media screen and (#{$rule}-width: $breakpoint) {
+    @content;
+  }
+}

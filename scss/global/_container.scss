@@ -1,0 +1,24 @@
+@use "./mixin" as *;
+@use "../global/function" as *;
+
+:root {
+  .container {
+    max-width: 71.5rem;
+    padding: 0 1.88rem;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  .container-pc {
+    max-width: 75rem;
+    padding: 0;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    @include mq(lg, max) {
+      padding: 0;
+    }
+  }
+}
