@@ -110,13 +110,13 @@ include 'nav.php' ?>
                     <div class="service__contents swiper-container">
                         <?php
                         $services = [
-//                             [
-//                                 "title" => "『 たっぷ 』",
-//                                 "subtitle" => "デジタルセラピーペット",
-//                                 "icon" => "icon-dogs.svg",
-//                                 "detail" => "高齢者のためのデジタルペットサービスです。近々リリース予定。",
-//                                 "readmore" => ""
-//                             ],
+                            //                             [
+                            //                                 "title" => "『 たっぷ 』",
+                            //                                 "subtitle" => "デジタルセラピーペット",
+                            //                                 "icon" => "icon-dogs.svg",
+                            //                                 "detail" => "高齢者のためのデジタルペットサービスです。近々リリース予定。",
+                            //                                 "readmore" => ""
+                            //                             ],
                             [
                                 "title" => "スマホ教室",
                                 "subtitle" => "",
@@ -305,7 +305,7 @@ include 'nav.php' ?>
                         </p><!-- /.h20subtitle -->
                     </div><!-- /.member__title -->
                     <div class="contact__contents">
-                        <?php echo do_shortcode('[contact-form-7 id="c56e2a6" title="contactform"]'); ?>
+                        <?php echo do_shortcode('[contact-form-7 id="dc765f9" title="front-page"]'); ?>
                     </div><!-- /.contact__contents -->
                 </div><!-- /.contact__wrapper -->
             </div><!-- /.contact__container container -->

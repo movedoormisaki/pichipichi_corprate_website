@@ -1,7 +1,36 @@
+// ============================================
+// COLOR PALETTE - たっぷ LP Design System
+// ============================================
+//
+// LP専用のカラーパレット（メインサイトとは異なる配色）
+// 温かみのあるブラウン・ベージュ系
+//
+// ============================================
+
+// --------------------------------------------
+// Brand Colors (ブランドカラー)
+// --------------------------------------------
+
+// Background Colors
+$lp-bg-primary: #ddcfc1;     // メイン背景（ベージュ）
+$lp-bg-secondary: #f2f0ef;   // サブ背景（ライトグレー）
+
+// Text Colors
+$lp-text-dark: #523425;      // 本文（ダークブラウン）
+$lp-text-light: #f4ede9;     // 明るい背景上のテキスト
+$lp-text-accent: #d0837d;    // アクセントテキスト（コーラルピンク）
+
+// --------------------------------------------
+// CSS Custom Properties
+// --------------------------------------------
+
 :root {
-  --background01: #ddcfc1;
-  --background02: #f2f0ef;
-  --fontColor01: #523425;
-  --fontColor02: #f4ede9;
-  --fontColor03: #d0837d;
+  // Background
+  --background01: #{$lp-bg-primary};
+  --background02: #{$lp-bg-secondary};
+
+  // Text
+  --fontColor01: #{$lp-text-dark};
+  --fontColor02: #{$lp-text-light};
+  --fontColor03: #{$lp-text-accent};
 }

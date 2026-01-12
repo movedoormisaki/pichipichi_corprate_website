@@ -12,3 +12,6 @@ lp-img/concept-video.mp4
 *.zip
 *.tar.gz
 *.rar
+
+# IDE settings
+.vscode/

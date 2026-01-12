@@ -1,3 +1,73 @@
+// ============================================
+// COLOR PALETTE - Pichi-Pichi Design System
+// ============================================
+//
+// 使用方法:
+// - CSS変数: var(--color-primary)
+// - SCSS変数: $color-primary
+//
+// ============================================
+
+// --------------------------------------------
+// Brand Colors (ブランドカラー)
+// --------------------------------------------
+
+// Primary - メインカラー (ピンク系)
+$color-primary: #e5005a;        // ボタンテキスト、アクセント
+$color-primary-light: #ffa0c6;  // サービスカード背景（ピンク）
+
+// Secondary - セカンダリ (イエロー系)
+$color-secondary: #fdd000;      // ボタン背景、メンバーカード背景
+$color-secondary-light: #ffe25a; // サービスカード背景（イエロー）
+$color-secondary-pale: #ffe982;  // ドロップシャドウ
+
+// Accent - アクセント (ブルー系)
+$color-accent: #00a2e8;         // グラデーション開始
+$color-accent-light: #00cbf7;   // グラデーション終了
+$color-accent-pale: #80d9ff;    // サービスカード背景（ブルー）
+
+// --------------------------------------------
+// Neutral Colors (ニュートラルカラー)
+// --------------------------------------------
+
+// Text Colors
+$color-text-dark: #1d333d;      // 本文、見出し（暗い背景以外）
+$color-text-light: #fffcee;     // 見出し（暗い背景上）
+
+// Background Colors
+$color-bg-cream: #fffcee;       // メイン背景（クリーム）
+$color-bg-white: #fff;          // カード背景
+$color-bg-placeholder: #ddd;    // プレースホルダー
+
+// --------------------------------------------
+// Gradient Definitions (グラデーション)
+// --------------------------------------------
+
+$gradient-main: linear-gradient(180deg, $color-accent 0%, $color-accent-light 100%);
+
+// --------------------------------------------
+// CSS Custom Properties
+// --------------------------------------------
+
 :root {
-  --background: linear-gradient(180deg, #00a2e8 0%, #00cbf7 100%);
+  // Brand
+  --color-primary: #{$color-primary};
+  --color-primary-light: #{$color-primary-light};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-light: #{$color-secondary-light};
+  --color-secondary-pale: #{$color-secondary-pale};
+  --color-accent: #{$color-accent};
+  --color-accent-light: #{$color-accent-light};
+  --color-accent-pale: #{$color-accent-pale};
+
+  // Text
+  --color-text-dark: #{$color-text-dark};
+  --color-text-light: #{$color-text-light};
+
+  // Background
+  --color-bg-cream: #{$color-bg-cream};
+  --color-bg-white: #{$color-bg-white};
+
+  // Gradient
+  --background: #{$gradient-main};
 }

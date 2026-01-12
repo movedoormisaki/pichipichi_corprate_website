@@ -1,1 +1,109 @@
 @use "./function" as *;
+
+// ============================================
+// DESIGN TOKENS - Pichi-Pichi Design System
+// ============================================
+
+// --------------------------------------------
+// Typography (タイポグラフィ)
+// --------------------------------------------
+
+// Font Families
+$font-display: "Lilita One", cursive;           // 見出し・ボタン（英字）
+$font-body: "M PLUS Rounded 1c", sans-serif;    // 本文・日本語
+
+// Font Weights
+$font-weight-regular: 400;   // Lilita One用
+$font-weight-medium: 500;    // M PLUS Rounded 1c 本文
+$font-weight-bold: 800;      // M PLUS Rounded 1c 強調
+$font-weight-black: 900;     // M PLUS Rounded 1c 見出し
+
+// Font Sizes (rem) - デスクトップ基準
+$font-size-xs: 0.875;    // 14px - 補足テキスト
+$font-size-sm: 1;        // 16px - 小さめ本文
+$font-size-base: 1.25;   // 20px - 標準本文
+$font-size-md: 1.5;      // 24px - 小見出し
+$font-size-lg: 2;        // 32px - 中見出し
+$font-size-xl: 2.5;      // 40px - 大見出し
+$font-size-2xl: 3;       // 48px - セクション見出し（SP）
+$font-size-3xl: 5;       // 80px - セクション見出し（PC）
+$font-size-4xl: 6;       // 96px - ページタイトル
+
+// Line Heights
+$line-height-tight: 1;       // 見出し用
+$line-height-normal: 1.5;    // 本文用
+$line-height-relaxed: 2;     // 読みやすさ重視
+
+// Letter Spacing
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.125rem;   // 2px - ボタン
+$letter-spacing-wider: 0.25rem;   // 4px - ハンバーガーメニュー
+
+// --------------------------------------------
+// Spacing (スペーシング)
+// --------------------------------------------
+
+// Base spacing unit (8px grid)
+$spacing-unit: 0.5rem;  // 8px
+
+$spacing-1: 0.625rem;   // 10px
+$spacing-2: 1.25rem;    // 20px
+$spacing-3: 1.875rem;   // 30px (1.88rem)
+$spacing-4: 2.5rem;     // 40px
+$spacing-5: 3.75rem;    // 60px
+$spacing-6: 5rem;       // 80px
+$spacing-7: 7.5rem;     // 120px
+$spacing-8: 10rem;      // 160px
+$spacing-9: 12.5rem;    // 200px
+
+// --------------------------------------------
+// Layout (レイアウト)
+// --------------------------------------------
+
+// Container widths
+$container-max: 71.5rem;     // 1144px - 標準コンテナ
+$container-wide: 75rem;      // 1200px - ワイドコンテナ
+$container-narrow: 50rem;    // 800px - ニュースなど
+
+// Container padding
+$container-padding: 1.88rem; // 30px
+
+// --------------------------------------------
+// Border Radius (角丸)
+// --------------------------------------------
+
+$radius-sm: 0.9375rem;   // 15px - タグ
+$radius-md: 1.25rem;     // 20px - ボタン小
+$radius-lg: 1.5625rem;   // 25px - ボタン大
+$radius-xl: 3rem;        // 48px - カード
+$radius-pill: 12rem;     // サービスカード（楕円）
+$radius-circle: 50%;     // 円形
+
+// --------------------------------------------
+// Shadows (シャドウ)
+// --------------------------------------------
+
+$shadow-card: 8px 8px 0px #ffe982;  // ニュースカード用
+$shadow-card-hover: 0px 0px 0px #ffe982;
+
+// --------------------------------------------
+// Transitions (トランジション)
+// --------------------------------------------
+
+$transition-fast: 0.2s ease-in-out;
+$transition-base: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// Hover scale
+$hover-scale: 1.1;
+
+// --------------------------------------------
+// Z-index (重なり順)
+// --------------------------------------------
+
+$z-background: 0;
+$z-content: 1;
+$z-circle: 2;
+$z-logo: 3;
+$z-hamburger: 4;
+$z-header: 5;

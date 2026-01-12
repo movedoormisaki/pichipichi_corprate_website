@@ -20,11 +20,11 @@ add_action('wp_enqueue_scripts', function () {
 
     // lpのURLの時にだけlp.min.cssを読み込む
     if (is_page('lp')) {
-        $lp_min_css_timestamp = date('Ymdgis', filemtime(get_stylesheet_directory() . '/lp.min.css'));
-        wp_enqueue_style('lp_min_css', get_stylesheet_directory_uri() . '/lp.min.css', [], $lp_min_css_timestamp);
+        $lp_min_css_timestamp = date('Ymdgis', filemtime(get_stylesheet_directory() . '/css/lp.min.css'));
+        wp_enqueue_style('lp_min_css', get_stylesheet_directory_uri() . '/css/lp.min.css', [], $lp_min_css_timestamp);
     } else {
-        $theme_min_css_timestamp = date('Ymdgis', filemtime(get_stylesheet_directory() . '/theme.min.css'));
-        wp_enqueue_style('theme_min_css', get_stylesheet_directory_uri() . '/theme.min.css', [], $theme_min_css_timestamp);
+        $theme_min_css_timestamp = date('Ymdgis', filemtime(get_stylesheet_directory() . '/css/theme.min.css'));
+        wp_enqueue_style('theme_min_css', get_stylesheet_directory_uri() . '/css/theme.min.css', [], $theme_min_css_timestamp);
     }
 }, 11);
 
