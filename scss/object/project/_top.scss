@@ -35,7 +35,7 @@
       right: fluidSize(8.75, 0, 120, 24.375);
       width: fluidSize(25, 15, 120, 24.375);
       @include mq(md, max) {
-        top: initial;
+        top: auto; // 'initial' is not supported in older browsers
         right: -2.19rem;
         bottom: 3rem;
       }
@@ -56,17 +56,41 @@
     padding-top: 3rem;
   }
   &__wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    gap: fluidSize(4.63, 1.87, 120, 24.375);
     justify-content: center;
+    // gap fallback for iOS < 14.1
+    > * {
+      margin: 0 calc(fluidSize(4.63, 1.87, 120, 24.375) / 2);
+    }
+    @supports (gap: 1rem) {
+      gap: fluidSize(4.63, 1.87, 120, 24.375);
+      > * {
+        margin: 0;
+      }
+    }
     @include mq(lg, max) {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
       flex-direction: column;
       width: 80%;
       margin: 0 auto;
+      > * {
+        margin: calc(fluidSize(5, 1.87, 48, 24.375) / 2) 0;
+      }
+      @supports (gap: 1rem) {
+        > * {
+          margin: 0;
+        }
+      }
     }
     @include mq(md, max) {
       width: 100%;
-      gap: fluidSize(5, 1.87, 48, 24.375);
+      @supports (gap: 1rem) {
+        gap: fluidSize(5, 1.87, 48, 24.375);
+      }
     }
   }
   &__title {
@@ -85,8 +109,14 @@
     position: relative;
     width: fluidSize(49.5, 30, 120, 24.375);
     height: fluidSize(49.5, 30, 120, 24.375);
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
     @include mq(md, max) {
       width: 100%;
@@ -95,22 +125,46 @@
       @include mq(md, max) {
         content: "";
         width: 105%;
-        aspect-ratio: 1/1;
-        height: auto;
+        // aspect-ratio fallback for iOS < 15
+        padding-top: 105%; // 1:1 ratio
+        height: 0;
         position: absolute;
         background: #fffcee;
         border-radius: 50%;
         z-index: 0;
+        @supports (aspect-ratio: 1/1) {
+          aspect-ratio: 1/1;
+          padding-top: 0;
+          height: auto;
+        }
       }
       @include mq(sm, max) {
         width: 120%;
+        padding-top: 120%;
+        @supports (aspect-ratio: 1/1) {
+          padding-top: 0;
+        }
       }
     }
   }
   &__heading {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     flex-direction: column;
-    gap: 1.25rem;
+    // gap fallback
+    > * + * {
+      margin-top: 1.25rem;
+    }
+    @supports (gap: 1rem) {
+      gap: 1.25rem;
+      > * + * {
+        margin-top: 0;
+      }
+    }
     h3 {
       color: #1d333d;
       font-family: "M PLUS Rounded 1c";
@@ -142,18 +196,44 @@
 
 .we-do {
   &__wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
-    gap: 1.87rem;
     z-index: 1;
+    // gap fallback
+    > * {
+      margin: 0 calc(1.87rem / 2);
+    }
+    @supports (gap: 1rem) {
+      gap: 1.87rem;
+      > * {
+        margin: 0;
+      }
+    }
     @include mq(lg, max) {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+      -webkit-flex-direction: column-reverse;
       flex-direction: column-reverse;
       width: 80%;
       margin: 0 auto;
+      > * {
+        margin: calc(fluidSize(5, 1.5, 48, 24.375) / 2) 0;
+      }
+      @supports (gap: 1rem) {
+        > * {
+          margin: 0;
+        }
+      }
     }
     @include mq(md, max) {
       width: 100%;
-      gap: fluidSize(5, 1.5, 48, 24.375);
+      @supports (gap: 1rem) {
+        gap: fluidSize(5, 1.5, 48, 24.375);
+      }
     }
   }
   &__title {
@@ -173,8 +253,14 @@
     position: relative;
     width: fluidSize(55.875, 33.75, 120, 24.375);
     height: fluidSize(55.875, 33.75, 120, 24.375);
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
     @include mq(md, max) {
       width: 100%;
@@ -183,22 +269,46 @@
       @include mq(md, max) {
         content: "";
         width: 105%;
-        aspect-ratio: 1/1;
-        height: auto;
+        // aspect-ratio fallback for iOS < 15
+        padding-top: 105%;
+        height: 0;
         position: absolute;
         background: #fffcee;
         border-radius: 50%;
         z-index: 0;
+        @supports (aspect-ratio: 1/1) {
+          aspect-ratio: 1/1;
+          padding-top: 0;
+          height: auto;
+        }
       }
       @include mq(sm, max) {
         width: 120%;
+        padding-top: 120%;
+        @supports (aspect-ratio: 1/1) {
+          padding-top: 0;
+        }
       }
     }
   }
   &__heading {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     flex-direction: column;
-    gap: fluidSize(2.5, 1.25, 120, 24.375);
+    // gap fallback
+    > * + * {
+      margin-top: fluidSize(2.5, 1.25, 120, 24.375);
+    }
+    @supports (gap: 1rem) {
+      gap: fluidSize(2.5, 1.25, 120, 24.375);
+      > * + * {
+        margin-top: 0;
+      }
+    }
   }
   &__cont {
     width: fluidSize(32, 22, 120, 24.375);
@@ -212,7 +322,7 @@
     top: -7.5rem;
     left: 6.35rem;
     @include mq(md, max) {
-      left: initial;
+      left: auto; // 'initial' is not supported in older browsers
       right: 3.5rem;
     }
   }
@@ -220,7 +330,7 @@
     bottom: 1rem;
     right: 9.21rem;
     @include mq(md, max) {
-      left: initial;
+      left: auto; // 'initial' is not supported in older browsers
       right: 3.5rem;
     }
   }
@@ -230,21 +340,47 @@
   padding-top: fluidSize(10, 5, 120, 24.375);
   margin-bottom: fluidSize(10, 5, 120, 24.375);
   &__title {
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
     align-items: center !important;
     margin-bottom: fluidSize(3.75, 2.5, 120, 24.375);
   }
   &__slick {
     @include mq(lg, min) {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
       align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
       justify-content: center;
-      gap: fluidSize(1.5, 0.5, 120, 24.375);
+      // gap fallback
+      > * {
+        margin: 0 calc(fluidSize(1.5, 0.5, 120, 24.375) / 2);
+      }
+      @supports (gap: 1rem) {
+        gap: fluidSize(1.5, 0.5, 120, 24.375);
+        > * {
+          margin: 0;
+        }
+      }
     }
   }
   &__card {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
     justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     flex-direction: column;
     border-radius: 12rem;
     width: fluidSize(24, 17.5, 120, 24.375);
@@ -393,14 +529,34 @@
     max-width: 50rem;
     margin: 0 auto;
     width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     flex-direction: column;
-    gap: fluidSize(3.75, 1.25, 120, 24.375);
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
     justify-content: flex-start;
+    // gap fallback
+    > * + * {
+      margin-top: fluidSize(3.75, 1.25, 120, 24.375);
+    }
+    @supports (gap: 1rem) {
+      gap: fluidSize(3.75, 1.25, 120, 24.375);
+      > * + * {
+        margin-top: 0;
+      }
+    }
   }
   &__title {
     position: relative;
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
     align-items: center !important;
     width: 100%;
     h2,
@@ -414,16 +570,30 @@
     right: 0;
     @include mq(lg, max) {
       position: relative !important;
-      bottom: initial;
-      right: initial;
+      bottom: auto; // 'initial' is not supported in older browsers
+      right: auto;
       margin: 0 0 0 auto;
     }
   }
   &__contents {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     flex-direction: column;
-    gap: fluidSize(2.5, 1.25, 120, 24.375);
     width: 100%;
+    // gap fallback
+    > * + * {
+      margin-top: fluidSize(2.5, 1.25, 120, 24.375);
+    }
+    @supports (gap: 1rem) {
+      gap: fluidSize(2.5, 1.25, 120, 24.375);
+      > * + * {
+        margin-top: 0;
+      }
+    }
   }
   &__item {
     overflow: hidden;
@@ -437,8 +607,14 @@
       filter: drop-shadow(0px 0px 0px #ffe982);
     }
     &-link {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
       align-items: center;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
       justify-content: flex-start;
     }
     &-thumbnail {
@@ -451,12 +627,30 @@
       }
     }
     &-title {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
       align-items: flex-start;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
       justify-content: center;
-      gap: fluidSize(1, 0.62, 120, 24.375);
-      padding: fluidSize(1.56, 1.25, 120, 24.375) fluidSize(1.5, 1.25, 120, 24.375);
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
       flex-direction: column;
+      padding: fluidSize(1.56, 1.25, 120, 24.375) fluidSize(1.5, 1.25, 120, 24.375);
+      // gap fallback
+      > * + * {
+        margin-top: fluidSize(1, 0.62, 120, 24.375);
+      }
+      @supports (gap: 1rem) {
+        gap: fluidSize(1, 0.62, 120, 24.375);
+        > * + * {
+          margin-top: 0;
+        }
+      }
       p {
         color: #1d333d;
         font-family: "M PLUS Rounded 1c";
@@ -480,6 +674,8 @@
 .member {
   margin-bottom: fluidSize(3.81, 2.44, 120, 24.375);
   &__title {
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
     align-items: center !important;
     margin-bottom: fluidSize(3.81, 1.25, 120, 24.375);
     h2,
@@ -488,12 +684,28 @@
     }
   }
   &__cards {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    gap: fluidSize(1.5, 1.25, 120, 24.375);
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
     align-items: flex-start;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
-    @include mq(md, max) {
-      flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    // gap fallback
+    margin: calc(-1 * fluidSize(1.5, 1.25, 120, 24.375) / 2);
+    > * {
+      margin: calc(fluidSize(1.5, 1.25, 120, 24.375) / 2);
+    }
+    @supports (gap: 1rem) {
+      gap: fluidSize(1.5, 1.25, 120, 24.375);
+      margin: 0;
+      > * {
+        margin: 0;
+      }
     }
   }
   &__card {
@@ -527,9 +739,18 @@
       display: block;
     }
     &-wrapper {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
       align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
       justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
       flex-direction: column;
       padding: fluidSize(1.87, 0.94, 120, 24.375);
       p {
@@ -562,149 +783,271 @@
   }
 }
 
+// ============================================
+// Contact Form Section
+// ============================================
+
 .contact {
   margin-top: fluidSize(10, 3.75, 120, 24.375);
   padding-bottom: fluidSize(7.5, 5, 120, 24.375);
+
+  // Container
   &__wrapper {
     max-width: 50rem;
     margin: 0 auto;
     width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     flex-direction: column;
-    gap: fluidSize(3.75, 1.25, 120, 24.375);
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
-    justify-content: flex-start;
     padding-bottom: fluidSize(7.5, 5, 120, 24.375);
+    > * + * {
+      margin-top: fluidSize(3.75, 1.25, 120, 24.375);
+    }
+    @supports (gap: 1rem) {
+      gap: fluidSize(3.75, 1.25, 120, 24.375);
+      > * + * {
+        margin-top: 0;
+      }
+    }
   }
+
+  // Title
   &__title {
     position: relative;
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
     align-items: center !important;
     width: 100%;
   }
+
+  // Form Container
   &__contents {
     width: 100%;
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: fluidSize(2.69, 1.44, 120, 24.375);
-      &_title {
-        color: #1d333d;
-        font-family: "M PLUS Rounded 1c";
-        font-size: fluidSize(2, 2.5, 120, 24.375);
-        font-style: normal;
-        font-weight: 800;
-        line-height: fluidSize(1.5, 1.25, 120, 24.375);
-        margin-bottom: 0;
-      }
+  }
+}
+
+// ============================================
+// Contact Form 7 Styles
+// ============================================
+
+.wpcf7-form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  > * + * {
+    margin-top: fluidSize(1.5, 1, 120, 24.375);
+  }
+  @supports (gap: 1rem) {
+    gap: fluidSize(1.5, 1, 120, 24.375);
+    > * + * {
+      margin-top: 0;
     }
   }
-  .form_group {
-    label {
-      color: #fffcee;
-      font-family: "M PLUS Rounded 1c";
-      font-size: fluidSize(1.5, 1.25, 120, 24.375);
-      font-style: normal;
-      font-weight: 800;
-      line-height: fluidSize(1.5, 1.25, 120, 24.375);
-      margin-bottom: 0;
-    }
-    &__tag {
-      width: fluidSize(3.75, 3.125, 120, 24.375);
-      height: fluidSize(1.875, 1.5625, 120, 24.375);
-      border-radius: 0.9375rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1d333d;
-      text-align: center;
-      font-family: "M PLUS Rounded 1c";
-      font-size: fluidSize(1, 0.875, 120, 24.375);
-      font-style: normal;
-      font-weight: 800;
-      line-height: fluidSize(1, 0.875, 120, 24.375);
-    }
-    &__title {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.63rem;
-      margin-bottom: 0.63rem;
-    }
-    &__required {
-      background: #fdd000;
-    }
-    &__optional {
-      background: #fff;
-    }
-    &__control {
-      width: 100%;
-      border-radius: fluidSize(2.5, 1.875, 120, 24.375);
-      background: #fffcee;
-      padding: fluidSize(1.87, 1.25, 120, 24.375) fluidSize(2.5, 1.88, 120, 24.375);
-      color: #1d333d;
-      font-family: "M PLUS Rounded 1c";
-      font-size: fluidSize(1.25, 1.125, 120, 24.375);
-      font-style: normal;
-      font-weight: 800;
-      line-height: 1.25rem;
-      &::placeholder {
-        color: #ddd !important;
-      }
-    }
-    &__checkbox {
-      width: 100%;
-      border-radius: fluidSize(2.5, 1.875, 120, 24.375);
-      background: #fffcee;
-      padding: fluidSize(1.87, 1.25, 120, 24.375) fluidSize(2.5, 1.88, 120, 24.375);
-      .wpcf7-list-item {
-        margin-left: 0;
-        label {
-          color: #1d333d;
-          font-family: "M PLUS Rounded 1c";
-          font-size: 1.25rem;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 1.25rem; /* 100% */
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-        }
-        input {
-          -moz-transform: scale(1.4);
-          -webkit-transform: scale(1.4);
-          transform: scale(1.4);
-        }
-        .wpcf7-list-item-label {
-          margin-left: 0.75rem;
-        }
-      }
-      .wpcf7-checkbox {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: fluidSize(2.5, 1, 120, 24.375);
-        @include mq(lg, max) {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-      }
-    }
-  }
-  .form_submit {
+}
+
+// ============================================
+// Form Group (各入力フィールドのグループ)
+// ============================================
+
+.form_group {
+  // ラベル部分のタイトル行
+  &__title {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    .wpcf7-submit {
-      color: #1d333d;
-      text-align: center;
-      font-family: "M PLUS Rounded 1c";
-      font-size: fluidSize(1.125, 1, 120, 24.375);
-      font-style: normal;
-      font-weight: 800;
-      line-height: 1.125rem; /* 100% */
-      letter-spacing: 0.5625rem;
-      text-transform: uppercase;
+    margin-bottom: fluidSize(0.75, 0.5, 120, 24.375);
+    > * + * {
+      margin-left: 0.63rem;
+    }
+    @supports (gap: 1rem) {
+      gap: 0.63rem;
+      > * + * {
+        margin-left: 0;
+      }
     }
   }
+
+  // 必須/任意タグ
+  &__tag {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: fluidSize(0.25, 0.2, 120, 24.375) fluidSize(0.75, 0.5, 120, 24.375);
+    border-radius: 1rem;
+    color: $color-text-dark;
+    font-family: $font-body;
+    font-size: fluidSize(0.875, 0.75, 120, 24.375);
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  &__required {
+    background: $color-secondary;
+  }
+
+  &__optional {
+    background: $color-bg-white;
+  }
+
+  // ラベルテキスト
+  label {
+    color: $color-text-light;
+    font-family: $font-body;
+    font-size: fluidSize(1.25, 1, 120, 24.375);
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  // 入力フィールド共通
+  &__control {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: fluidSize(1.5, 1, 120, 24.375);
+    background: $color-bg-cream;
+    padding: fluidSize(1.25, 1, 120, 24.375) fluidSize(1.5, 1.25, 120, 24.375);
+    color: $color-text-dark;
+    font-family: $font-body;
+    font-size: fluidSize(1.125, 1, 120, 24.375);
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &:focus {
+      outline: 3px solid $color-secondary;
+      outline-offset: 2px;
+    }
+
+    &::-webkit-input-placeholder {
+      color: #bbb;
+    }
+    &::-moz-placeholder {
+      color: #bbb;
+    }
+    &::placeholder {
+      color: #bbb;
+    }
+  }
+
+  // テキストエリア
+  textarea.form_group__control {
+    min-height: fluidSize(12, 8, 120, 24.375);
+    resize: vertical;
+  }
+}
+
+// ============================================
+// Submit Button
+// ============================================
+
+.form_submit {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-top: fluidSize(1.5, 1, 120, 24.375);
+
+  &__btn,
+  .wpcf7-submit {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    min-width: fluidSize(15, 12, 120, 24.375);
+    padding: fluidSize(1.25, 1, 120, 24.375) fluidSize(3, 2, 120, 24.375);
+    border: none;
+    border-radius: 3rem;
+    background: $color-secondary;
+    color: $color-text-dark;
+    font-family: $font-body;
+    font-size: fluidSize(1.125, 1, 120, 24.375);
+    font-weight: 800;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: 0.3s all ease-in-out;
+    transition: 0.3s all ease-in-out;
+
+    &:hover {
+      -webkit-transform: scale(1.05);
+      transform: scale(1.05);
+      background: #e6bc00; // darken(#fdd000, 5%)
+    }
+
+    &:active {
+      -webkit-transform: scale(0.98);
+      transform: scale(0.98);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// ============================================
+// CF7 Validation & Response Messages
+// ============================================
+
+.wpcf7-not-valid-tip {
+  display: block;
+  margin-top: 0.5rem;
+  color: #ff4d4d;
+  font-family: $font-body;
+  font-size: fluidSize(0.875, 0.75, 120, 24.375);
+  font-weight: 500;
+}
+
+.wpcf7-response-output {
+  margin-top: fluidSize(1.5, 1, 120, 24.375);
+  padding: fluidSize(1, 0.75, 120, 24.375);
+  border-radius: 0.5rem;
+  font-family: $font-body;
+  font-size: fluidSize(1, 0.875, 120, 24.375);
+  text-align: center;
+}
+
+.wpcf7-mail-sent-ok {
+  background: rgba(#4caf50, 0.2);
+  color: #2e7d32;
+}
+
+.wpcf7-validation-errors,
+.wpcf7-acceptance-missing {
+  background: rgba(#ff4d4d, 0.2);
+  color: #c62828;
+}
+
+// CF7のspinnerを非表示
+.wpcf7-spinner {
+  display: none;
 }

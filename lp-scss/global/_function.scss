@@ -1,30 +1,45 @@
 @use "sass:math";
 @use "sass:map";
 
-//-----初期設定----//
-$unit: 1rem; //使用する単位の設定(px or rem)
-$baseSize: 16px; //remを使うためのbasesize
+// ============================================
+// FUNCTIONS - たっぷ LP Design System
+// ============================================
+//
+// メインテーマと同じ関数を使用
+// 詳細は scss/global/_function.scss を参照
+//
+// ============================================
+
+// --------------------------------------------
+// Base Configuration (基本設定)
+// --------------------------------------------
+
+$unit: 1rem;
+$baseSize: 16px;
+$baseFontSize: 16;
 
 $unitSize: (
   1px: 1,
   1rem: stripUnit($baseSize),
 );
 
-/*
-追加
----------------------------*/
-$baseFontSize: 16;
+// --------------------------------------------
+// Functions
+// --------------------------------------------
 
+/// 単位を取り除く
+@function stripUnit($num) {
+  @return math.div($num, ($num * 0 + 1));
+}
+
+/// pxをremに変換
+/// @example fz(24) → 1.5rem
 @function fz($fontSize) {
   @return math.div($fontSize, 16) * 1rem;
 }
 
-@function stripUnit($num) {
-  //単位を取り除く
-  @return math.div($num, ($num * 0 + 1));
-}
-
-// 線形的に値を変換する
+/// 画面幅に応じて値を線形補間
+/// @example fluidSize(5, 3, 120, 24.375)
 @function fluidSize($maxNum, $minNum, $maxBreakpoint, $minBreakpoint) {
   $minUnit: $minNum * $unit;
   $maxUnit: $maxNum * $unit;

@@ -2,6 +2,18 @@
 @use "sass:math";
 @use "./function" as *;
 
+// ============================================
+// MIXINS - たっぷ LP Design System
+// ============================================
+//
+// 詳細は scss/global/_mixin.scss を参照
+//
+// ============================================
+
+// --------------------------------------------
+// Breakpoints (ブレークポイント)
+// --------------------------------------------
+
 $mq-breakpoints: (
   "xs": 390px,
   "sm": 576px,
@@ -13,15 +25,55 @@ $mq-breakpoints: (
   "xxxl": 1920px,
 ) !default;
 
-// メディアクエリ
+// --------------------------------------------
+// Media Query Mixin
+// --------------------------------------------
+//
+// 使用方法:
+//   @include mq(md)      → min-width: 768px
+//   @include mq(md, max) → max-width: 767px
+//
+
 @mixin mq($breakpoint: md, $rule: min) {
   $breakpoint: map.get($mq-breakpoints, $breakpoint);
 
-  @if $rule ==max {
+  @if $rule == max {
     $breakpoint: $breakpoint - 1px;
   }
 
   @media screen and (#{$rule}-width: $breakpoint) {
     @content;
   }
+}
+
+// --------------------------------------------
+// Layout Mixins
+// --------------------------------------------
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// --------------------------------------------
+// Interaction Mixins
+// --------------------------------------------
+
+@mixin hover-scale($scale: 1.1) {
+  transition: 0.3s transform ease-in-out;
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+@mixin hover-transition($properties: all, $duration: 0.3s) {
+  transition: $duration $properties ease-in-out;
 }

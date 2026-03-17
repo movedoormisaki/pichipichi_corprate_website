@@ -1,3 +1,23 @@
+// ============================================
+// GLOBAL - Pichi-Pichi Design System
+// ============================================
+//
+// デザインシステムのコアファイル
+// 各SCSSファイルで `@use "../global" as *;` で読み込み
+//
+// --------------------------------------------
+// ファイル構成
+// --------------------------------------------
+//
+// _color.scss     - カラーパレット（SCSS変数 & CSS変数）
+// _font.scss      - フォント設定（Google Fonts使用）
+// _function.scss  - ユーティリティ関数（fz, fluidSize等）
+// _mixin.scss     - Mixins（mq, flex-center等）
+// _container.scss - コンテナレイアウト
+// _variable.scss  - デザイントークン（spacing, radius等）
+//
+// ============================================
+
 @forward "color";
 @forward "font";
 @forward "function";

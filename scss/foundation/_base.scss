@@ -12,6 +12,15 @@ html {
 }
 
 /* Animations */
+@-webkit-keyframes ani {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
 @keyframes ani {
   0% {
     background-position: 50% 0%;
@@ -27,6 +36,7 @@ html {
   background-size: 30px 30px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
   width: 100%;
+  -webkit-animation: ani 50s linear infinite;
   animation: ani 50s linear infinite;
   &-white {
     background: #fffcee;

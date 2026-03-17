@@ -1,23 +1,58 @@
-// // Lilita One Regular
-// @font-face {
-//   font-family: "Lilita One";
-//   font-weight: normal;
-//   font-style: normal;
-//   font-display: swap;
+// ============================================
+// FONTS - Pichi-Pichi Design System
+// ============================================
+//
+// フォントはGoogle Fonts CDNから読み込み
+// (header.phpで設定済み)
+//
+// --------------------------------------------
+// 使用フォント一覧
+// --------------------------------------------
+//
+// 1. Lilita One (英字ディスプレイフォント)
+//    - weight: 400 (Regular)
+//    - 用途: 見出し、ボタンテキスト、ナビゲーション
+//    - 特徴: 丸みのあるポップな英字フォント
+//
+// 2. M PLUS Rounded 1c (日本語本文フォント)
+//    - weight: 500 (Medium) - 本文用
+//    - weight: 800 (ExtraBold) - 強調用
+//    - weight: 900 (Black) - 見出し用
+//    - 用途: 本文、日本語テキスト全般
+//    - 特徴: 丸ゴシック、可読性が高い
+//
+// --------------------------------------------
+// 使用例
+// --------------------------------------------
+//
+// // 英字見出し
+// .heading-en {
+//   font-family: "Lilita One", cursive;
+//   font-weight: 400;
 // }
-
-// // M PLUS Rounded 1c Black
-// @font-face {
-//   font-family: "M PLUS Rounded 1c";
+//
+// // 日本語見出し
+// .heading-ja {
+//   font-family: "M PLUS Rounded 1c", sans-serif;
 //   font-weight: 900;
-//   font-style: normal;
-//   font-display: swap;
 // }
-
-// // M PLUS Rounded 1c Medium
-// @font-face {
-//   font-family: "M PLUS Rounded 1c";
+//
+// // 本文
+// .body-text {
+//   font-family: "M PLUS Rounded 1c", sans-serif;
 //   font-weight: 500;
-//   font-style: normal;
-//   font-display: swap;
 // }
+//
+// --------------------------------------------
+// CDN読み込み (header.phpに記載)
+// --------------------------------------------
+//
+// <link href="https://fonts.googleapis.com/css2?
+//   family=Lilita+One&
+//   family=M+PLUS+Rounded+1c:wght@500;900&
+//   display=swap" rel="stylesheet">
+//
+// ============================================
+
+// @font-faceは使用していません
+// Google Fonts CDNから直接読み込んでいます
