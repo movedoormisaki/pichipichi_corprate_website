@@ -1,0 +1,486 @@
+@use "../../global" as *;
+
+.cefit-test {
+  background: var(--background);
+  min-height: 100vh;
+
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .low-c-headline {
+    h1 {
+      color: #f2f2f2;
+    }
+
+    p {
+      color: #d9a296;
+    }
+  }
+
+  &__body {
+    background: #fffcee;
+    padding: fluidSize(5, 2.5, 120, 24.375) 0;
+  }
+
+  &__content {
+    max-width: 50rem;
+    width: 100%;
+    margin: 0 auto fluidSize(3, 1.5, 120, 24.375);
+
+    h2 {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(2, 1.5, 120, 24.375);
+      font-weight: 900;
+      line-height: fluidSize(
+        3,
+        2.25,
+        120,
+        24.375
+      );
+      margin-bottom: fluidSize(2, 1, 120, 24.375);
+    }
+
+    p {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(1.125, 1, 120, 24.375);
+      font-weight: 500;
+      line-height: fluidSize(2.5, 2, 120, 24.375);
+    }
+  }
+
+  // ─── 2カラム比較レイアウト ───
+  &__compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: fluidSize(3, 1.5, 120, 24.375);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__panel-header {
+    background: #7c8c70;
+    color: #f2f2f2;
+    font-family: "M PLUS Rounded 1c";
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem 0.75rem 0 0;
+    text-align: center;
+  }
+
+  &__iframe-wrapper {
+    flex: 1;
+    min-height: 600px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 0.75rem 0.75rem;
+    overflow: hidden;
+  }
+
+  &__iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    border: none;
+    display: block;
+  }
+
+  &__info {
+    margin-top: fluidSize(3, 1.5, 120, 24.375);
+    background: #fff;
+    border-radius: 1rem;
+    padding: fluidSize(2.5, 1.5, 120, 24.375);
+
+    h3 {
+      color: #1d333d;
+      font-family: "M PLUS Rounded 1c";
+      font-size: fluidSize(
+        1.5,
+        1.125,
+        120,
+        24.375
+      );
+      font-weight: 800;
+      margin-bottom: fluidSize(
+        1.5,
+        0.75,
+        120,
+        24.375
+      );
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+
+      li {
+        color: #1d333d;
+        font-family: "M PLUS Rounded 1c";
+        font-size: fluidSize(
+          1.125,
+          1,
+          120,
+          24.375
+        );
+        font-weight: 500;
+        line-height: fluidSize(
+          2.5,
+          2,
+          120,
+          24.375
+        );
+      }
+    }
+  }
+}
+
+// ─── 自作チャットUI ───
+.custom-chat {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 0.75rem 0.75rem;
+  overflow: hidden;
+  background: #f2f2f2;
+
+  // ─── ヘッダー ───
+  &__header {
+    background: #d9526b;
+    color: #f2f2f2;
+    padding: 0.875rem 1rem;
+    font-family: "M PLUS Rounded 1c";
+    font-weight: 700;
+    font-size: 0.9375rem;
+  }
+
+  &__title {
+    display: block;
+  }
+
+  // ─── メッセージエリア ───
+  &__messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  // ─── メッセージ行（アバター + 吹き出し） ───
+  &__message {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    &--user {
+      flex-direction: row-reverse;
+    }
+
+    &--bot {
+      flex-direction: row;
+    }
+  }
+
+  // ─── アバター ───
+  &__avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+
+    &--bot {
+      background: #7c8c70;
+    }
+
+    &--user {
+      background: #d9a296;
+    }
+  }
+
+  // ─── 吹き出し ───
+  &__bubble {
+    max-width: 75%;
+    padding: 0.625rem 0.875rem;
+    border-radius: 1rem;
+    font-family: "M PLUS Rounded 1c";
+    font-size: 0.875rem;
+    line-height: 1.6;
+    word-break: break-word;
+
+    .custom-chat__message--user & {
+      background: #d9a296;
+      color: #1d333d;
+      border-bottom-right-radius: 0.25rem;
+    }
+
+    .custom-chat__message--bot & {
+      background: #fff;
+      color: #1d333d;
+      border-bottom-left-radius: 0.25rem;
+    }
+
+    // ─── Markdown描画用スタイル ───
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin: 0;
+
+      + p {
+        margin-top: 0.375em;
+      }
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    a {
+      color: #d9526b;
+      text-decoration: underline;
+
+      &:hover {
+        color: #c4405a;
+      }
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    ul,
+    ol {
+      margin: 0.25em 0;
+      padding-left: 1.25em;
+    }
+
+    li {
+      margin-bottom: 0;
+    }
+
+    code {
+      background: #e8e8e8;
+      padding: 0.125em 0.375em;
+      border-radius: 0.25rem;
+      font-size: 0.8125rem;
+      font-family: "Courier New", monospace;
+    }
+
+    pre {
+      background: #1d333d;
+      color: #f2f2f2;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 0.375em 0;
+
+      code {
+        background: none;
+        padding: 0;
+        color: inherit;
+        font-size: 0.8125rem;
+      }
+    }
+
+    blockquote {
+      border-left: 3px solid #d9a296;
+      margin: 0.375em 0;
+      padding: 0.25em 0.75em;
+      color: #555;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.375em 0 0.125em;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-size: 1.125rem;
+    }
+    h2 {
+      font-size: 1.0625rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0.375em 0;
+      font-size: 0.8125rem;
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 0.375rem 0.5rem;
+        text-align: left;
+      }
+
+      th {
+        background: #f2f2f2;
+        font-weight: 700;
+      }
+    }
+
+    // ─── ローディング状態（吹き出し内） ───
+    &--loading {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 0.875rem;
+    }
+  }
+
+  // ─── ローディングラベル＋ドット ───
+  &__loading-label {
+    font-size: 0.8125rem;
+    color: #888;
+    animation: status-pulse 1.5s ease-in-out infinite;
+  }
+
+  &__loading-dots {
+    display: flex;
+    gap: 0.25rem;
+
+    .dot {
+      width: 0.4rem;
+      height: 0.4rem;
+      background: #7c8c70;
+      border-radius: 50%;
+      animation: dot-bounce 1.4s ease-in-out infinite;
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+
+  // ─── 入力エリア ───
+  &__input-area {
+    display: flex;
+    border-top: 1px solid #ddd;
+    background: #fff;
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-family: "M PLUS Rounded 1c";
+    font-size: 0.875rem;
+    outline: none;
+
+    &::placeholder {
+      color: #999;
+    }
+
+    &:disabled {
+      background: #f5f5f5;
+    }
+  }
+
+  &__send-btn {
+    background: #d9526b;
+    color: #f2f2f2;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-family: "M PLUS Rounded 1c";
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover:not(:disabled) {
+      background: #c4405a;
+    }
+
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    &.is-loading {
+      background: #999;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0.875rem;
+        height: 0.875rem;
+        border: 2px solid #f2f2f2;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-left: 0.375rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+@keyframes dot-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
