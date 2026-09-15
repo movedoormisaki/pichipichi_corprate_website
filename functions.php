@@ -36,6 +36,7 @@ function get_custom_menu_items()
         ["name" => "TOP", "url" => home_url('/')],
         ["name" => "SERVICE", "url" => home_url('/#service')],
         ["name" => "ABOUT US", "url" => home_url('/about-us')],
+        ["name" => "MESSAGE", "url" => home_url('/message')],
         ["name" => "CONTACT", "url" => home_url('/#contact')]
     ];
     return $menuItems;

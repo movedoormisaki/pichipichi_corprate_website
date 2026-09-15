@@ -1,0 +1,39 @@
+// Figma 9206:479: three capsules on the first row, two centred below.
+.top > .bg { background-image: none; }
+.top .service {
+  background: #fff;
+  padding-block: clamp(80px, 8.333vw, 160px);
+  margin-block: clamp(60px, 5.208vw, 100px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.top .service__title h2,
+.top .service__title .h2-subtitle { color: #1d333d; }
+.top .service__container { max-width: 1260px; }
+.top .service__status { display: block; margin-bottom: 8px; }
+.top .service__card:nth-child(4) { background: #80d9ff; }
+.top .service__card:nth-child(5) { background: #ffa0c6; }
+.top .service__card-title { font-size: clamp(24px, 1.667vw, 32px); line-height: 1.5; }
+.top .service__card-icon img { width: 120px; height: 120px; object-fit: contain; }
+.top .service__card::before { background-image: url(../img/circle_line_shape02.svg); }
+@media (min-width: 1025px) {
+  .top .service__slick { flex-wrap: wrap; gap: 80px 24px; }
+  .top .service__card { flex: 0 0 calc((100% - 48px) / 3); max-width: 384px; }
+}
+@media (max-width: 1024px) {
+  .top .service__contents { position: relative; width: 100%; margin-inline: auto; }
+  // Swiper calculates the offset; flex centring and gaps would shift it again.
+  .top .service__slick { justify-content: flex-start; flex-wrap: nowrap; gap: 0; }
+  .top .service__card { flex-shrink: 0; margin: 0; }
+  .top .service .swiper-button-next,
+  .top .service .swiper-button-prev {
+    display: block;
+    top: 50%;
+    margin-top: 0;
+    transform: translateY(-50%);
+  }
+  .top .service__card-icon img { width: 80px; height: 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg, .circle, .circle__puru { animation: none !important; transform: none !important; }
+}
