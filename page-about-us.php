@@ -8,7 +8,7 @@
  * @since 1.0.0
  */
 ?>
-<? get_header();
+<?php get_header();
 include 'nav.php' ?>
 <main class="about">
     <div class="bg">
@@ -64,7 +64,7 @@ include 'nav.php' ?>
                             今日も誰かとつながれる。ひとりじゃない社会
                         </h2>
                         <p>
-                            デジタルが一般化し、バーチャルが日常に溶け込む今、便利さの裏で、取り残される人も増えています。だからこそ、必要なのは「愛」。技術が進んでも、人が心を開くには温かみが欠かせません。私たちは、どんな人でも愛でバーチャルの世界へ入れるようにする。リアルとバーチャルの垣根をなくし、誰もが安心して新しい世界につながれる未来を創ります。
+                            デジタルの便利さと、地域で顔を合わせる安心。その両方を大切にしながら、誰もがつながりを感じられる毎日を目指します。
                         </p>
                     </div><!-- /.about__mission -->
 
@@ -73,11 +73,10 @@ include 'nav.php' ?>
                             STORY
                         </p><!-- /.subtitle -->
                         <h2>
-                            じっち、ばぁばに<br>
-                            楽しんでもらいたい
+                            地域から、暮らしへ
                         </h2>
                         <p>
-                            じいじは丹波篠山、ばぁばは奈良。それぞれ75歳を超え、一人暮らし。会いたいけど頻繁には行けない。でも、離れていても楽しい時間を過ごしてほしい。そんな人はきっとたくさんいる。だからこそ、今できることをしたい。
+                            丹波篠山を拠点に、手作りソーセージ体験や制作・開発を展開。配食サービスを届けながら、AIデジタルペット「たっぷ」や、街歩きを楽しむ「ししまめ」の取り組みを進めています。
                         </p>
                     </div><!-- /.about__mission -->
                 </section>
@@ -101,7 +100,7 @@ include 'nav.php' ?>
                             会社概要
                         </p><!-- /.h20subtitle -->
                     </div><!-- /.about__info-title -->
-                    <div class="about__info-contents">
+                    <div class="about__info-contents"><div class="about__info-group"><p class="about__info-title">設立</p><p class="about__info-detail">2023年10月</p></div>
                         <div class="about__info-group">
                             <p class="about__info-title">
                                 会社名
@@ -131,20 +130,19 @@ include 'nav.php' ?>
 
                         <div class="about__info-group">
                             <p class="about__info-title">
-                                従業員数
+                                決算期
                             </p>
                             <p class="about__info-detail">
-                                3名
+                                9月
                             </p><!-- /.about__info-detail -->
                         </div><!-- /.about__info-group -->
 
                         <div class="about__info-group">
                             <p class="about__info-title">
-                                所在地
+                                活動拠点
                             </p>
                             <p class="about__info-detail">
-                                〒669-1133<br>
-                                兵庫県西宮市東山台4-4-9
+                                兵庫県丹波篠山市
                             </p><!-- /.about__info-detail -->
                         </div><!-- /.about__info-group -->
                     </div><!-- /.about-info-contents -->
@@ -154,4 +152,4 @@ include 'nav.php' ?>
     </div><!-- /.bg -->
 </main><!-- /.about -->
 
-<? get_footer(); ?>
+<?php get_footer(); ?>

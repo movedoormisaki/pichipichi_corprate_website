@@ -1,0 +1,6 @@
+{
+  "name": "pichipichi-corporate-theme",
+  "private": true,
+  "scripts": { "build": "sass scss/theme.scss css/theme.min.css --style=compressed" },
+  "devDependencies": { "sass": "1.89.2" }
+}

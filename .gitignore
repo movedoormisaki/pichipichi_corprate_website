@@ -1,8 +1,10 @@
+node_modules/
+.local-tools/
+.preview/
+
 # Large video files
 lp-img/*.mp4
 lp-img/concept-video.mp4
-
-# Video files
 *.mp4
 *.webm
 *.mov
@@ -13,15 +15,9 @@ lp-img/concept-video.mp4
 *.tar.gz
 *.rar
 
-# IDE settings
+# IDE settings and credentials
 .vscode/
-
-# Temporary Claude files
 tmpclaude-*
 temp_*.scss
-
-# Environment variables
 .env
-
-# Claude Code local settings
 .claude/

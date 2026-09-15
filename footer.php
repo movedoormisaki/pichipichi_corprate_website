@@ -26,11 +26,11 @@
                     ぴちぴち株式会社
                 </p><!-- /.footer__info-title -->
                 <p class="footer__info-address">
-                    〒669-1133<br>
-                    兵庫県西宮市東山台４－４－９
+                    兵庫県西宮市東山台4-4-9<br>
+                    事業所：兵庫県丹波篠山市魚屋町14
                 </p><!-- /.footer__info-address -->
                 <p class="footer__info-copy">
-                    © 2025 Pichi-Pichi
+                    © <?php echo esc_html(date("Y")); ?> Pichi-Pichi
                 </p><!-- /.footer__info-copy -->
             </div><!-- /.footer__info -->
         </div><!-- /.footer__wrapper -->
