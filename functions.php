@@ -60,17 +60,3 @@ function add_swiper_scripts_to_front_page()
 }
 
 add_action('wp_enqueue_scripts', 'add_swiper_scripts_to_front_page');
-
-// Recruitment styles are isolated to the recruitment template.
-add_action('wp_enqueue_scripts', function () {
-    if (is_page_template('page-recruit.php') || is_page('recruit')) {
-        wp_enqueue_style('pichipichi-recruit', get_stylesheet_directory_uri() . '/css/recruit.css', ['theme_min_css'], filemtime(get_stylesheet_directory() . '/css/recruit.css'));
-    }
-}, 20);
-
-// Homepage recruitment callout; selectors do not affect existing sections.
-add_action('wp_enqueue_scripts', function () {
-    if (is_front_page()) {
-        wp_enqueue_style('pichipichi-recruit-teaser', get_stylesheet_directory_uri() . '/css/recruit-teaser.css', ['theme_min_css'], filemtime(get_stylesheet_directory() . '/css/recruit-teaser.css'));
-    }
-}, 20);
