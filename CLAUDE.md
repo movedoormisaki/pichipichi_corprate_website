@@ -77,6 +77,8 @@ Custom page templates in root directory:
 - `page-news.php` - お知らせ一覧
 - `page-analytics.php` - Analytics dashboard
 - `page-lp-tap.php` - たっぷ landing page
+- `page-message.php` - 代表紹介
+- `page-recruit.php` - 採用サイト (Figma: ぴちぴち 採用LP v9)
 - `single.php` - News article (extends SWELL_Theme)
 
 ### Key PHP Patterns

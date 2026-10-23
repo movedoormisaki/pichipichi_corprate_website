@@ -30,6 +30,13 @@ add_action('wp_enqueue_scripts', function () {
 
 add_filter('show_admin_bar', '__return_false');
 
+// 採用サイト（page-recruit.php）専用のWebフォント
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('page-recruit.php')) {
+        wp_enqueue_style('recruit_fonts', 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@500&display=swap', [], null);
+    }
+}, 12);
+
 function get_custom_menu_items()
 {
     $menuItems = [
