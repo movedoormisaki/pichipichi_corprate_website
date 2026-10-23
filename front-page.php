@@ -98,6 +98,11 @@ include 'nav.php' ?>
 
             </div><!-- /.mission__container -->
         </section><!-- /.we-do -->
+        <section class="recruit-teaser" aria-labelledby="recruit-teaser-title">
+            <p class="recruit-teaser__label">RECRUIT</p><h2 id="recruit-teaser-title">丹波篠山と共に歩む未来を、つくろう。</h2>
+            <p>食 × 観光 × 地域貢献。正社員・週休3日で、事業を動かす仲間を募集しています。</p>
+            <a class="recruit-teaser__link" href="<?php echo esc_url(home_url('/recruit/')); ?>">採用情報を見る</a>
+        </section>
         <section id="service" class="service">
             <div class="service__container container">
                 <div class="service__wrapper">
@@ -110,11 +115,11 @@ include 'nav.php' ?>
                     <div class="service__contents swiper-container">
                         <?php
                         $services = [
-                            ["title" => "高齢者テック", "subtitle" => "AIデジタルペット『たっぷ』", "icon" => "icon-dogs.svg", "detail" => "タブレットの中で暮らすバーチャル犬。なでる、話しかける毎日のふれあいを通じて、暮らしにつながりを育てます。", "readmore" => home_url("https://degitalpet.jp")],
-                            ["title" => "配食事業", "subtitle" => "ししまめのお届け弁当", "icon" => "icon-delivery.svg", "detail" => "丹波篠山市を中心に食事と、人との接点を。地域の暮らしに寄り添い、ご本人やご家族にお弁当をお届けする配食サービスです。", "readmore" => home_url("https://shishimame-bento.com")],
-                            ["title" => "観光IP事業", "subtitle" => "ししまめプロジェクト", "icon" => "icon-shishimame.svg", "detail" => "丹波篠山を秋以外も活発な街づくりのため、歩く理由を、もっと。キャラクターとデジタルを通じて、地域のお店や街の魅力に出会う仕組みをつくります。", "readmore" => "https://tamba-shishimame.web.jp/"],
-                            ["title" => "観光店舗事業", "subtitle" => "手作り体験処 シシニクとソーセージ", "icon" => "icon-sausage.svg", "detail" => "丹波篠山で楽しむ、手作りソーセージ体験。つくる時間も、食べる時間も旅の思い出に。地域を訪れる楽しみを届けます。", "readmore" => home_url("/#contact")],
-                            ["title" => "制作・システム開発", "subtitle" => "", "icon" => "icon-system.svg", "detail" => "Webサイト、システム、映像など、事業者の課題に合わせて制作・開発を行います。地域のアイデアを、使えるかたちへ。", "readmore" => home_url("/#contact")]
+                            ["title" => "高齢者テック", "subtitle" => "AIデジタルペット『たっぷ』", "icon" => "icon-dogs.svg", "detail" => "タブレットの中で暮らすバーチャル犬。なでる、話しかける毎日のふれあいを通じて、暮らしにつながりを育てます。", "readmore" => "https://digitalpet.jp/", "label" => "公式サイトへ"],
+                            ["title" => "配食事業", "subtitle" => "ししまめのお届け弁当", "icon" => "icon-delivery.svg", "detail" => "丹波篠山市を中心に食事と、人との接点を。地域の暮らしに寄り添い、ご本人やご家族にお弁当をお届けする配食サービスです。", "readmore" => "https://shishimame-bento.com/", "label" => "公式サイトへ"],
+                            ["title" => "観光IP事業", "subtitle" => "ししまめプロジェクト", "icon" => "icon-shishimame.svg", "detail" => "丹波篠山を秋以外も活発な街づくりのため、歩く理由を、もっと。キャラクターとデジタルを通じて、地域のお店や街の魅力に出会う仕組みをつくります。", "readmore" => "https://tamba-shishimame.web.app/", "label" => "公式サイトへ"],
+                            ["title" => "観光店舗事業", "subtitle" => "手作り体験処 シシニクとソーセージ", "icon" => "icon-sausage.svg", "detail" => "丹波篠山で楽しむ、手作りソーセージ体験。つくる時間も、食べる時間も旅の思い出に。地域を訪れる楽しみを届けます。", "readmore" => "https://shishiniku-sausage.com/", "label" => "公式サイトへ"],
+                            ["title" => "制作・システム開発", "subtitle" => "", "icon" => "icon-system.svg", "detail" => "Webサイト、システム、映像など、事業者の課題に合わせて制作・開発を行います。地域のアイデアを、使えるかたちへ。", "readmore" => home_url("/#contact"), "label" => "お問い合わせ"]
                         ];
                         ?>
                         <div class="service__slick swiper-wrapper">
@@ -127,18 +132,18 @@ include 'nav.php' ?>
                                     <div class="service__card-content">
 
                                         <p class="service__card-subtitle">
-                                            <?= htmlspecialchars($service['subtitle']); ?>
+                                            <?= htmlspecialchars($service['title']); ?>
                                         </p>
 
                                         <h4 class="service__card-title">
-                                            <?= htmlspecialchars($service['title']); ?>
+                                            <?= htmlspecialchars($service['subtitle']); ?>
                                         </h4>
                                         <p class="service__card-detail">
                                             <?php echo esc_html($service['detail']); ?>
                                         </p>
                                         <?php if (!empty($service['readmore'])): ?>
                                             <div class="service__card-readmore">
-                                                <a href="<?= htmlspecialchars($service['readmore']); ?>"><?= strpos($service["readmore"], "#contact") !== false ? "Contact" : "Read More"; ?></a>
+                                                <a href="<?= htmlspecialchars($service['readmore']); ?>"><?= esc_html($service['label']); ?></a>
                                             </div>
                                         <?php endif; ?>
                                     </div>

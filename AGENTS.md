@@ -4,7 +4,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Project Overview
 
-This is the **swell_child** theme for the Pichi-Pichi Co., Ltd. (ぴちぴち株式会社) corporate website. It's a WordPress child theme extending the SWELL parent theme, running on Local by Flywheel for development.
+This is the **pichipichi-corp** theme for the Pichi-Pichi Co., Ltd. (ぴちぴち株式会社) corporate website. It's a WordPress child theme extending the SWELL parent theme, running on Local by Flywheel for development.
 
 - **Live site**: pichipichi.co.jp
 - **Parent theme**: SWELL (Japanese WordPress theme)

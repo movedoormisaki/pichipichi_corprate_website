@@ -1,107 +1,310 @@
+@use "../../global" as *;
+
 .message {
-  --message-blue: #00a2e8;
-  --message-cream: #fffcee;
-  --message-yellow: #ffd600;
-  color: #1d333c;
-  background: var(--message-cream);
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-weight: 500;
-  line-height: 1.5;
-  h1, h2, h3, p, ol { margin: 0; padding: 0; }
-  h1, h3 { font-weight: 900; }
-  ol { list-style: none; }
-  a { color: inherit; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible { outline: 3px solid currentColor; outline-offset: 6px; }
-  &__nav { display: flex; justify-content: space-between; gap: 30px; padding: 2.5vw; background: var(--message-blue); color: var(--message-cream); }
-  &__nav img { width: 3.646vw; height: auto; }
-  &__mobile-menu { display: none; }
-  &__nav div { display: flex; align-items: flex-start; gap: 2vw; font: 1.302vw/1.05 "Lilita One", cursive; padding-right: 7vw; }
-  &__section { padding: 6.25vw 7.292vw; }
-  &__hero { padding-top: 3.646vw; padding-bottom: 5.208vw; background: var(--message-blue); color: var(--message-cream); }
-  &__eyebrow { color: var(--message-yellow); font: 2.344vw/1.05 "Lilita One", cursive; margin-bottom: 1.25vw !important; }
-  &__intro { display: grid; grid-template-columns: 820fr 700fr; gap: 3.333vw; }
-  &__intro h1 { font-size: 5.208vw; line-height: 1.5; margin-bottom: 1.25vw; }
-  &__role { font-size: 1.25vw; }
-  &__name { font-size: 2.917vw; font-weight: 900; color: var(--message-yellow); margin-top: 1.25vw !important; }
-  &__portrait { width: 36.458vw; height: 35.938vw; border-radius: 15.625vw; background: var(--message-yellow); color: #1d333c; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 1.25vw; overflow: hidden; }
-  &__portrait p { font: 3.646vw/1.05 "Lilita One", cursive; }
-  &__portrait span { font-size: 1.25vw; }
-  &__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-  &__wave { display: block; width: 100%; height: 5.208vw; }
-  &__display { font: 5.208vw/1.05 "Lilita One", cursive; margin-bottom: 1.25vw !important; }
-  &__lead { font-size: 2.917vw; font-weight: 900; margin-bottom: 1.25vw !important; }
-  &__timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.083vw; }
-  &__year { display: grid; place-items: center; width: 9.375vw; height: 9.375vw; border-radius: 50%; background: var(--message-yellow); font: 2.5vw/1.05 "Lilita One", cursive; }
-  &__timeline li:nth-child(even) &__year { background: #ffa1c9; }
-  &__timeline h3 { font-size: 1.667vw; margin: 1.25vw 0; }
-  &__timeline p { font-size: 1.198vw; }
-  &__path { display: block; width: 100%; height: auto; margin: 1.25vw 0; }
-  &__learning { font-size: 1.354vw; }
-  &__work { background: var(--message-blue); color: var(--message-cream); }
-  &__work h2 { color: var(--message-yellow); }
-  &__work li { display: grid; grid-template-columns: 12.5vw 1fr; gap: 3.646vw; padding-bottom: 2.292vw; margin-bottom: 1.25vw; }
-  &__work li > span { color: var(--message-yellow); font: 8.333vw/1.05 "Lilita One", cursive; }
-  &__work li:nth-child(2) > span { color: #ffa1c9; }
-  &__work h3 { font-size: 3.854vw; margin-bottom: 1.25vw; }
-  &__work li p { font-size: 1.406vw; }
-  &__partners { padding-top: 6.771vw; padding-bottom: 6.771vw; }
-  &__partners h2 { font-size: 4.167vw; }
-  &__letter { padding: 5.208vw; }
-  &__letter h3 { font-size: 3.438vw; margin-bottom: 1.25vw; }
-  &__letter > p { max-width: 64.583vw; font-size: 1.406vw; margin-bottom: 1.25vw; }
-  &__letter .message__role { font-size: 1.198vw; }
-  &__letter .message__signature { font-size: 2.708vw; font-weight: 900; margin-bottom: 0; }
-  &__footer { background: var(--message-yellow); padding: 4.167vw; font-size: 1.146vw; display: grid; gap: 1.25vw; }
-  &__footer img { width: 3.125vw; height: auto; }
-  &__company { font-size: 1.667vw; font-weight: 900; }
-  &__footer small { font-size: .729vw; }
-  @media(max-width: 768px) {
-    &__nav { padding: 24px; align-items: center; gap: 16px; }
-    &__nav img { width: 48px; }
-    &__nav .message__desktop-links { display: none; }
-    &__mobile-menu { display: block; position: relative; font: 18px/1.5 "Lilita One", cursive; }
-    &__mobile-menu summary { cursor: pointer; list-style: none; }
-    &__mobile-menu summary::-webkit-details-marker { display: none; }
-    &__mobile-menu ul { position: absolute; z-index: 10; right: 0; top: 36px; width: 200px; padding: 24px; background: var(--message-cream); color: #1d333c; list-style: none; border-radius: 20px; box-shadow: 0 8px 20px #1d333c33; }
-    &__mobile-menu li + li { margin-top: 16px; }
-    &__nav div { font-size: 12px; gap: 12px; padding: 0; flex-wrap: wrap; justify-content: flex-end; }
-    &__nav span { display: none; }
-    &__section { padding: 64px 24px; }
-    &__hero { padding-top: 36px; padding-bottom: 64px; }
-    &__eyebrow { font-size: 23px; margin-bottom: 24px !important; }
-    &__intro { grid-template-columns: 1fr; gap: 32px; }
-    &__intro h1 { font-size: clamp(34px, 11.8vw, 48px); margin-bottom: 24px; }
-    &__role { font-size: 16px; }
-    &__name { font-size: 36px; margin-top: 16px !important; }
-    &__portrait { width: 100%; height: 380px; border-radius: 150px; gap: 24px; }
-    &__portrait p { font-size: 38px; }
-    &__portrait span { font-size: 16px; }
-    &__wave { height: 36px; object-fit: fill; content: url(../img/message-wave-mobile.svg); }
-    &__display { font-size: 45px; margin-bottom: 24px !important; }
-    &__lead { font-size: 28px; margin-bottom: 32px !important; }
-    &__timeline { grid-template-columns: 1fr; gap: 30px; }
-    &__timeline li:not(:last-child)::after { content: ""; display: block; width: 90px; height: 54px; background: url(../img/message-journey-mobile.svg) center / contain no-repeat; margin-top: 24px; }
-    &__year { width: 110px; height: 110px; font-size: 32px; }
-    &__timeline h3 { font-size: 26px; margin: 24px 0; }
-    &__timeline p { font-size: 17px; }
-    &__path { display: none; }
-    &__learning { margin-top: 24px !important; }
-    &__learning { font-size: 17px; }
-    &__work li { grid-template-columns: 1fr; gap: 16px; padding: 0; margin-bottom: 40px; }
-    &__work li:last-child { margin-bottom: 0; }
-    &__work li > span { font-size: 72px; }
-    &__work h3 { font-size: 38px; margin-bottom: 16px; }
-    &__work li p { font-size: 17px; }
-    &__partners h2 { font-size: 36px; }
-    &__letter { padding: 24px 0 0; }
-    &__letter h3 { font-size: 36px; margin-bottom: 24px; }
-    &__letter > p { max-width: none; font-size: 17px; margin-bottom: 24px; }
-    &__letter .message__role { font-size: 16px; }
-    &__letter .message__signature { font-size: 32px; }
-    &__footer { padding: 40px 24px; font-size: 17px; gap: 24px; }
-    &__footer img { width: 48px; }
-    &__company { font-size: 20px; }
-    &__footer small { font-size: 12px; }
+  background: var(--background);
+  overflow: hidden;
+
+  // Hero
+  &__hero {
+    padding-top: fluidSize(5, 2.5, 120, 24.375);
+    padding-bottom: fluidSize(5, 2.5, 120, 24.375);
+  }
+
+  &__eyebrow {
+    color: $color-primary;
+    font-family: "Lilita One", cursive;
+    font-size: fluidSize(2, 1.25, 120, 24.375);
+    line-height: 1.05;
+    margin-bottom: fluidSize(1.5, 1, 120, 24.375);
+  }
+
+  &__intro {
+    display: grid;
+    grid-template-columns: 1fr fluidSize(30, 18, 120, 24.375);
+    gap: fluidSize(3.75, 2, 120, 24.375);
+    align-items: center;
+    @include mq(md, max) {
+      grid-template-columns: 1fr;
+      gap: fluidSize(2.5, 1.5, 120, 24.375);
+    }
+  }
+
+  &__quote {
+    color: $color-text-dark;
+    font-family: $font-body;
+    font-size: fluidSize(3.5, 2, 120, 24.375);
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: fluidSize(1.5, 1, 120, 24.375);
+  }
+
+  &__role {
+    color: $color-text-dark;
+    font-family: $font-body;
+    font-size: fluidSize(1.125, 0.875, 120, 24.375);
+    font-weight: 500;
+  }
+
+  &__name {
+    color: $color-primary;
+    font-family: $font-body;
+    font-size: fluidSize(2.5, 1.75, 120, 24.375);
+    font-weight: 900;
+    margin-top: fluidSize(1, 0.5, 120, 24.375);
+  }
+
+  &__portrait {
+    width: fluidSize(30, 18, 120, 24.375);
+    height: fluidSize(30, 18, 120, 24.375);
+    border-radius: 50%;
+    background: $color-secondary;
+    overflow: hidden;
+    @include mq(md, max) {
+      width: 100%;
+      height: fluidSize(25, 18, 120, 24.375);
+      border-radius: fluidSize(10, 8, 120, 24.375);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+  }
+
+  // Sections
+  &__section {
+    padding: fluidSize(6.25, 3, 120, 24.375) 0;
+    max-width: 60rem;
+    margin: 0 auto;
+    @include mq(md, max) {
+      padding: fluidSize(4, 2.5, 120, 24.375) 0;
+    }
+  }
+
+  // Display headings
+  &__display {
+    font-family: "Lilita One", cursive;
+    font-size: fluidSize(4, 2.5, 120, 24.375);
+    line-height: 1.05;
+    color: $color-text-dark;
+    margin-bottom: fluidSize(1.5, 1, 120, 24.375);
+  }
+
+  &__lead {
+    font-family: $font-body;
+    font-size: fluidSize(2.25, 1.5, 120, 24.375);
+    font-weight: 900;
+    color: $color-text-dark;
+    line-height: 1.6;
+    margin-bottom: fluidSize(2.5, 1.5, 120, 24.375);
+  }
+
+  // Timeline
+  &__timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: fluidSize(2.5, 1.5, 120, 24.375);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include mq(lg, max) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include mq(md, max) {
+      grid-template-columns: 1fr;
+      gap: fluidSize(2, 1.5, 120, 24.375);
+    }
+  }
+
+  &__year {
+    display: grid;
+    place-items: center;
+    width: fluidSize(7.5, 5.5, 120, 24.375);
+    height: fluidSize(7.5, 5.5, 120, 24.375);
+    border-radius: 50%;
+    background: $color-secondary;
+    font-family: "Lilita One", cursive;
+    font-size: fluidSize(2, 1.5, 120, 24.375);
+    line-height: 1.05;
+    color: $color-text-dark;
+  }
+
+  &__timeline li:nth-child(even) &__year {
+    background: $color-primary-light;
+  }
+
+  &__timeline h3 {
+    font-family: $font-body;
+    font-size: fluidSize(1.375, 1.125, 120, 24.375);
+    font-weight: 900;
+    color: $color-text-dark;
+    margin: fluidSize(1, 0.75, 120, 24.375) 0;
+  }
+
+  &__timeline p {
+    font-family: $font-body;
+    font-size: fluidSize(1, 0.875, 120, 24.375);
+    font-weight: 500;
+    color: $color-text-dark;
+    line-height: 1.8;
+  }
+
+  &__path {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: fluidSize(1.5, 1, 120, 24.375) 0;
+    @include mq(md, max) {
+      display: none;
+    }
+  }
+
+  &__timeline li:not(:last-child)::after {
+    @include mq(md, max) {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 54px;
+      background: url(../img/message-journey-mobile.svg) center / contain no-repeat;
+      margin-top: fluidSize(1.5, 1, 120, 24.375);
+    }
+  }
+
+  // Skills
+  &__skills {
+    padding: fluidSize(6.25, 3, 120, 24.375) 0;
+    background: $color-bg-cream;
+  }
+
+  &__skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: fluidSize(2.5, 1.5, 120, 24.375);
+    margin-top: fluidSize(2.5, 1.5, 120, 24.375);
+    @include mq(md, max) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__skills-item {
+    border-radius: fluidSize(1.5, 1, 120, 24.375);
+    padding: fluidSize(2, 1.25, 120, 24.375);
+
+    h3 {
+      font-family: $font-body;
+      font-size: fluidSize(1.25, 1, 120, 24.375);
+      font-weight: 900;
+      color: $color-primary;
+      margin-bottom: fluidSize(0.75, 0.5, 120, 24.375);
+    }
+
+    p {
+      font-family: $font-body;
+      font-size: fluidSize(1, 0.875, 120, 24.375);
+      font-weight: 500;
+      color: $color-text-dark;
+      line-height: 1.8;
+    }
+  }
+
+  // Wave
+  &__wave {
+    display: block;
+    width: 100%;
+    height: fluidSize(5, 2.25, 120, 24.375);
+  }
+
+  // HOW I WORK
+  &__work {
+    padding: fluidSize(6.25, 3, 120, 24.375) 0;
+    color: $color-text-light;
+
+    .message__display {
+      color: $color-text-light;
+    }
+
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: grid;
+      grid-template-columns: fluidSize(8, 4, 120, 24.375) 1fr;
+      gap: fluidSize(2.5, 1.25, 120, 24.375);
+      padding-bottom: fluidSize(2.5, 1.5, 120, 24.375);
+      margin-bottom: fluidSize(1.5, 1, 120, 24.375);
+      @include mq(md, max) {
+        grid-template-columns: 1fr;
+        gap: fluidSize(1, 0.5, 120, 24.375);
+      }
+    }
+
+    li > span {
+      color: $color-secondary;
+      font-family: "Lilita One", cursive;
+      font-size: fluidSize(5, 3.5, 120, 24.375);
+      line-height: 1.05;
+    }
+
+    li:nth-child(2) > span {
+      color: $color-primary-light;
+    }
+
+    h3 {
+      font-family: $font-body;
+      font-size: fluidSize(2.5, 1.75, 120, 24.375);
+      font-weight: 900;
+      margin-bottom: fluidSize(1, 0.5, 120, 24.375);
+    }
+
+    li p {
+      font-family: $font-body;
+      font-size: fluidSize(1.125, 0.875, 120, 24.375);
+      font-weight: 500;
+      line-height: 1.8;
+    }
+  }
+
+  // DEAR PARTNERS
+  &__partners {
+    padding: fluidSize(6.25, 3, 120, 24.375) 0;
+  }
+
+  &__letter {
+    padding-top: fluidSize(3, 1.5, 120, 24.375);
+
+    h3 {
+      font-family: $font-body;
+      font-size: fluidSize(2.5, 1.75, 120, 24.375);
+      font-weight: 900;
+      color: $color-text-dark;
+      line-height: 1.6;
+      margin-bottom: fluidSize(1.5, 1, 120, 24.375);
+    }
+
+    > p {
+      font-family: $font-body;
+      font-size: fluidSize(1.125, 0.875, 120, 24.375);
+      font-weight: 500;
+      color: $color-text-dark;
+      line-height: 1.8;
+      max-width: 50rem;
+      margin-bottom: fluidSize(1.25, 0.75, 120, 24.375);
+    }
+
+    .message__role {
+      font-size: fluidSize(1, 0.875, 120, 24.375);
+      margin-top: fluidSize(2.5, 1.5, 120, 24.375);
+    }
+
+    .message__signature {
+      font-family: $font-body;
+      font-size: fluidSize(2, 1.5, 120, 24.375);
+      font-weight: 900;
+      color: $color-text-dark;
+    }
   }
 }
