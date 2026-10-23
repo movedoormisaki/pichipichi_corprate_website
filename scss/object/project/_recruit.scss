@@ -179,6 +179,7 @@
     }
     &-copy {
       position: absolute;
+      z-index: 2;
       left: 24px;
       right: 24px;
       bottom: 132px;
