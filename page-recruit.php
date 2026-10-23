@@ -19,7 +19,21 @@ $recruit_photo = function ($file) use ($recruit_dir, $recruit_uri) {
 
 $line_url = 'https://lin.ee/UN2CkFl';
 
-$hero_photo = $recruit_photo('sausage-experience.webp');
+/**
+ * ヒーローのスライドショー画像: img/recruit/top_slider_img01〜05.(webp|jpg|jpeg|png)
+ * 置かれているファイルだけを順番に表示する。
+ */
+$hero_slides = [];
+foreach (range(1, 5) as $n) {
+    foreach (['webp', 'jpg', 'jpeg', 'png'] as $ext) {
+        $file = sprintf('top_slider_img%02d.%s', $n, $ext);
+        if (file_exists($recruit_dir . $file)) {
+            $hero_slides[] = $recruit_uri . $file;
+            break;
+        }
+    }
+}
+$hero_photo = $recruit_photo('sausage-experience.webp') ?: ($hero_slides[0] ?? null);
 $delivery_photo = $recruit_photo('meal-delivery.webp');
 $bento_photo = $recruit_photo('bento.png');
 $shishimame_photo = $recruit_photo('shishimame.png');
@@ -110,10 +124,10 @@ get_header();
 
     <!-- Hero -->
     <section class="recruit__hero" aria-label="丹波篠山と共に、地域の未来をつくる。">
-        <div class="recruit__hero-photo<?php echo $hero_photo ? '' : ' is-empty'; ?>">
-            <?php if ($hero_photo) : ?>
-                <img src="<?php echo esc_url($hero_photo); ?>" alt="ソーセージづくり体験の様子" width="1440" height="620" fetchpriority="high">
-            <?php endif; ?>
+        <div class="recruit__hero-photo<?php echo $hero_slides ? '' : ' is-empty'; ?>" data-slider>
+            <?php foreach ($hero_slides as $i => $slide) : ?>
+                <img class="recruit__hero-slide<?php echo $i === 0 ? ' is-active' : ''; ?>" src="<?php echo esc_url($slide); ?>" alt="" width="1440" height="620" <?php echo $i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>>
+            <?php endforeach; ?>
         </div>
         <div class="recruit__hero-copy">
             <h1>丹波篠山と共に、<br>地域の未来をつくる。</h1>
@@ -422,6 +436,17 @@ get_header();
 </main>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // ヒーローのスライドショー（5秒ごとにフェード切り替え）
+        var slides = document.querySelectorAll('.recruit__hero-slide');
+        if (slides.length > 1) {
+            var current = 0;
+            setInterval(function() {
+                slides[current].classList.remove('is-active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('is-active');
+            }, 5000);
+        }
+
         // ページ内リンクをスムーズスクロール
         document.querySelectorAll('.recruit a[href^="#"]').forEach(function(link) {
             link.addEventListener('click', function(event) {

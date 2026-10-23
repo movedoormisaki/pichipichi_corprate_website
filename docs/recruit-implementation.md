@@ -24,7 +24,8 @@ Figma上の写真・キャラクター画像はネットワーク制限により
 
 | ファイル名 | 用途 | Figmaレイヤー |
 |---|---|---|
-| `sausage-experience.webp` | ヒーロー背景・仕事カード01 | `sausage-experience.webp` |
+| `top_slider_img01.webp` 〜 `top_slider_img05.webp` | ヒーローのスライドショー（5秒ごとにフェード切替。置いた枚数分だけ表示。jpg/png も可） | `sausage-experience.webp` ほかトップ用写真 |
+| `sausage-experience.webp` | 仕事カード01（無ければ `top_slider_img01` を使用） | `sausage-experience.webp` |
 | `meal-delivery.webp` | 仕事カード02・働き方の写真 | `meal-delivery.webp` / `Photo break` |
 | `bento.png` | 募集条件の商品写真（背景除去） | `Asset/お弁当/提供画像・背景除去` |
 | `shishimame.png` | Q&A・CTAのキャラクター（背景除去） | `Asset/キャラクター/ししまめ・背景除去` |
