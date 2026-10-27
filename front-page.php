@@ -98,11 +98,6 @@ include 'nav.php' ?>
 
             </div><!-- /.mission__container -->
         </section><!-- /.we-do -->
-        <section class="recruit-teaser" aria-labelledby="recruit-teaser-title">
-            <p class="recruit-teaser__label">RECRUIT</p><h2 id="recruit-teaser-title">丹波篠山と共に歩む未来を、つくろう。</h2>
-            <p>食 × 観光 × 地域貢献。正社員・週休3日で、事業を動かす仲間を募集しています。</p>
-            <a class="recruit-teaser__link" href="<?php echo esc_url(home_url('/recruit/')); ?>">採用情報を見る</a>
-        </section>
         <section id="service" class="service">
             <div class="service__container container">
                 <div class="service__wrapper">
@@ -160,6 +155,22 @@ include 'nav.php' ?>
                 </div><!-- /.service__wrapper -->
             </div><!-- /.service__container container -->
         </section><!-- /.service -->
+        <section class="recruit-teaser" aria-labelledby="recruit-teaser-title">
+            <div class="recruit-teaser__card">
+                <div class="recruit-teaser__body">
+                    <p class="recruit-teaser__label">RECRUIT<span>採用情報</span></p>
+                    <h2 id="recruit-teaser-title" class="recruit-teaser__catch">丹波篠山と共に歩む<br>未来を、つくろう。</h2>
+                    <ul class="recruit-teaser__tags">
+                        <li>正社員</li>
+                        <li>週休3日</li>
+                        <li>食 × 観光 × 地域貢献</li>
+                    </ul>
+                    <p class="recruit-teaser__text">事業を動かす仲間を募集しています。</p>
+                    <a class="recruit-teaser__btn" href="<?php echo esc_url(home_url('/recruit/')); ?>">採用情報を見る<span aria-hidden="true">→</span></a>
+                </div>
+                <img class="recruit-teaser__character" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/recruit/shishimame.png" alt="" width="480" height="465" loading="lazy">
+            </div>
+        </section>
         <?php
         // 掲載記事の準備ができるまでNEWSと前後の装飾を非表示にする。
         $show_news = false;
@@ -252,7 +263,11 @@ include 'nav.php' ?>
                         </p><!-- /.h20subtitle -->
                     </div><!-- /.member__title -->
                     <div class="contact__contents">
-                        <?php echo do_shortcode('[contact-form-7 id="dc765f9" title="front-page"]'); ?>
+                        <p class="contact__lead">お問い合わせは、ぴちぴち公式LINEで受け付けています。<br>友だち追加のうえ、お気軽にメッセージをお送りください。</p>
+                        <a class="contact__line" href="https://lin.ee/UN2CkFl" target="_blank" rel="noopener">
+                            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/recruit/icon-line.png" alt="" width="32" height="32">
+                            公式LINEで問い合わせる
+                        </a>
                     </div><!-- /.contact__contents -->
                 </div><!-- /.contact__wrapper -->
             </div><!-- /.contact__container container -->

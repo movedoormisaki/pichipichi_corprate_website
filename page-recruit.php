@@ -4,7 +4,7 @@
  * Template Name: 採用サイト
  * Template Post Type: page
  *
- * Figma: ぴちぴち 採用LP v9｜PC・スマホ（PC: 3:11 / SP: 3:12）
+ * Figma: ぴちぴち 採用LP v9｜スマホ（SP: 3:12）モバイル専用
  */
 
 $recruit_dir = get_stylesheet_directory() . '/img/recruit/';
@@ -12,9 +12,16 @@ $recruit_uri = get_stylesheet_directory_uri() . '/img/recruit/';
 
 /**
  * img/recruit/ に写真が置かれていればURLを返す。無ければ null（NO IMAGE表示）。
+ * 拡張子が違っても（例: bento.png → bento.webp）同名のファイルを探す。
  */
 $recruit_photo = function ($file) use ($recruit_dir, $recruit_uri) {
-    return file_exists($recruit_dir . $file) ? $recruit_uri . $file : null;
+    $name = pathinfo($file, PATHINFO_FILENAME);
+    foreach (array_unique([pathinfo($file, PATHINFO_EXTENSION), 'webp', 'jpg', 'jpeg', 'png']) as $ext) {
+        if (file_exists($recruit_dir . $name . '.' . $ext)) {
+            return $recruit_uri . $name . '.' . $ext;
+        }
+    }
+    return null;
 };
 
 $line_url = 'https://lin.ee/UN2CkFl';
@@ -35,8 +42,30 @@ foreach (range(1, 5) as $n) {
 }
 $hero_photo = $recruit_photo('sausage-experience.webp') ?: ($hero_slides[0] ?? null);
 $delivery_photo = $recruit_photo('meal-delivery.webp');
+$section_photo = $recruit_photo('section_image.webp');
 $bento_photo = $recruit_photo('bento.png');
 $shishimame_photo = $recruit_photo('shishimame.png');
+$hashi_photo = $recruit_photo('shishimame_hashi.png');
+
+/**
+ * Our purpose のループスライダーに流す「ししまめ」: img/recruit/shishimame/{番号}.webp
+ */
+$shishimame_variants = array_filter([
+    ['001', '三つ豆ししまめ'],
+    ['016', '松茸ししまめ'],
+    ['049', '秀治ししまめ'],
+    ['061', '獅子舞ししまめ'],
+    ['127', '武者行列ししまめ'],
+    ['149', '黒豆大福ししまめ'],
+    ['170', '鮎釣りししまめ'],
+    ['178', '観光ガイドししまめ'],
+    ['185', '駅長ししまめ'],
+    ['192', '丹波竜ししまめ'],
+    ['194', '炎ししまめ'],
+    ['206', '徳利ししまめ'],
+], function ($variant) use ($recruit_dir) {
+    return file_exists($recruit_dir . 'shishimame/' . $variant[0] . '.webp');
+});
 $founder_photo = has_post_thumbnail() ? get_the_post_thumbnail_url(null, 'large') : $recruit_photo('founder.jpg');
 
 $services = [
@@ -61,13 +90,13 @@ $services = [
         'url' => 'https://shishimame-bento.com/',
     ],
     [
-        'num' => '03 / LOCAL EVENTS',
-        'photo' => null,
-        'catch' => 'イベントが、きっかけをつくる。',
+        'num' => '03 / CHARACTER TOURISM',
+        'photo' => $recruit_photo('shishimame-projects.webp'),
+        'catch' => 'キャラクターで、まちに人を呼ぶ。',
         'name' => 'ししまめプロジェクト・地域企画',
-        'title' => "人とまちがつながる、\nイベントの企画。",
-        'body' => 'ゆるキャラの「ししまめ」を活用した観光企画や、マルシェ・イベントを運営。地域の事業者と連携し、企画を形にします。',
-        'tags' => ['イベントの企画', '地域との連携', '提案・実行'],
+        'title' => "キャラクターを使った、\n観光施策。",
+        'body' => 'ゆるキャラ「ししまめ」を活用した観光施策を企画・運営。イベントや地域の事業者との連携を通じて、丹波篠山に人を呼び込みます。',
+        'tags' => ['観光施策の企画', 'キャラクター活用', '地域との連携'],
         'url' => 'https://tamba-shishimame.web.app/',
     ],
 ];
@@ -114,6 +143,8 @@ $steps = [
 
 get_header();
 ?>
+<div class="recruit-page">
+<div class="bg">
 <main class="recruit" id="top">
 
     <!-- ブランド -->
@@ -135,7 +166,7 @@ get_header();
         </div>
         <div class="recruit__hero-cta">
             <a class="recruit__btn recruit__btn--outline" href="#services">仕事を知る<img src="<?php echo esc_url($recruit_uri); ?>icon-arrow-down-circle.svg" alt="" width="28" height="28"></a>
-            <a class="recruit__btn recruit__btn--line" href="<?php echo esc_url($line_url); ?>" target="_blank" rel="noopener"><img src="<?php echo esc_url($recruit_uri); ?>icon-line.svg" alt="" width="28" height="28">LINEで相談</a>
+            <a class="recruit__btn recruit__btn--line" href="<?php echo esc_url($line_url); ?>" target="_blank" rel="noopener"><img src="<?php echo esc_url($recruit_uri); ?>icon-line.png" alt="" width="28" height="28">LINEで相談</a>
         </div>
     </section>
 
@@ -159,6 +190,19 @@ get_header();
                     <p class="recruit__purpose-text">ぴちぴち株式会社では、丹波篠山を拠点に、食・観光・地域の事業を育てています。まだ創業まもないベンチャーだからできることを、気づきを新しい価値につなげます。</p>
                 </div>
             </div>
+            <?php if ($shishimame_variants) : ?>
+                <div class="recruit__marquee" aria-label="ご当地ししまめたち">
+                    <div class="recruit__marquee-track">
+                        <?php foreach ([false, true] as $is_clone) : ?>
+                            <ul class="recruit__marquee-list"<?php echo $is_clone ? ' aria-hidden="true"' : ''; ?>>
+                                <?php foreach ($shishimame_variants as [$num, $label]) : ?>
+                                    <li><img src="<?php echo esc_url($recruit_uri . 'shishimame/' . $num . '.webp'); ?>" alt="<?php echo $is_clone ? '' : esc_attr($label); ?>" width="80" height="80" loading="lazy"></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
             <hr class="recruit__rule">
             <div class="recruit__role">
                 <p class="recruit__eyebrow">Your role</p>
@@ -217,9 +261,9 @@ get_header();
                     <p class="recruit__work-text">正社員としての仕事を持ちながら、<br>自分の活動や挑戦にも時間を使ってほしいから。</p>
                 </div>
                 <div class="recruit__photo-break">
-                    <div class="recruit__photo-break-img<?php echo $delivery_photo ? '' : ' is-empty'; ?>">
-                        <?php if ($delivery_photo) : ?>
-                            <img src="<?php echo esc_url($delivery_photo); ?>" alt="お弁当をお届けする様子" width="632" height="426" loading="lazy">
+                    <div class="recruit__photo-break-img<?php echo $section_photo ? '' : ' is-empty'; ?>">
+                        <?php if ($section_photo) : ?>
+                            <img src="<?php echo esc_url($section_photo); ?>" alt="ソーセージづくり体験を楽しむ子どもたち" width="1560" height="1040" loading="lazy">
                         <?php endif; ?>
                     </div>
                     <p class="recruit__photo-break-caption">仕事も、<br>自分のやりたいことも。</p>
@@ -340,9 +384,14 @@ get_header();
                     <h2 id="details-title" class="recruit__h2">募集条件</h2>
                     <p class="recruit__details-text">店舗運営を軸に、裁量と責任を持って事業を育てる仕事。</p>
                 </div>
-                <div class="recruit__details-photo<?php echo $bento_photo ? '' : ' is-empty'; ?>">
-                    <?php if ($bento_photo) : ?>
-                        <img src="<?php echo esc_url($bento_photo); ?>" alt="ししまめのお届け弁当" width="472" height="315" loading="lazy">
+                <div class="recruit__details-visual">
+                    <div class="recruit__details-photo<?php echo $bento_photo ? '' : ' is-empty'; ?>">
+                        <?php if ($bento_photo) : ?>
+                            <img src="<?php echo esc_url($bento_photo); ?>" alt="ししまめのお届け弁当を盛り付ける様子" width="2514" height="1696" loading="lazy">
+                        <?php endif; ?>
+                    </div>
+                    <?php if ($hashi_photo) : ?>
+                        <img class="recruit__details-hashi" src="<?php echo esc_url($hashi_photo); ?>" alt="" width="320" height="473" loading="lazy">
                     <?php endif; ?>
                 </div>
             </div>
@@ -417,7 +466,7 @@ get_header();
             <h2 id="cta-title" class="recruit__h2 recruit__h2--center recruit__h2--sm">わくわくする気持ちを、<br>地域の未来につなげよう。</h2>
             <p class="recruit__cta-text">あなたの考えを聞かせてください。<br>一緒に、ここから始まる仕事を育てていきましょう。</p>
             <a class="recruit__line-btn" href="<?php echo esc_url($line_url); ?>" target="_blank" rel="noopener">
-                <img src="<?php echo esc_url($recruit_uri); ?>icon-line.svg" alt="" width="32" height="32">
+                <img src="<?php echo esc_url($recruit_uri); ?>icon-line.png" alt="" width="32" height="32">
                 <span>LINEで応募・相談</span>
                 <span class="recruit__line-btn-arrow"><img src="<?php echo esc_url($recruit_uri); ?>icon-arrow-right.svg" alt="" width="18" height="18"></span>
             </a>
@@ -434,6 +483,8 @@ get_header();
         <a class="recruit__footer-top" href="#top">⌂ ページの先頭へ</a>
     </footer>
 </main>
+</div>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // ヒーローのスライドショー（5秒ごとにフェード切り替え）

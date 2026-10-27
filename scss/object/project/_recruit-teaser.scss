@@ -1,0 +1,141 @@
+@use "../../global" as *;
+
+// ============================================
+// トップページの採用案内（front-page.php → /recruit/）
+// ============================================
+
+.recruit-teaser {
+  padding: fluidSize(5, 3, 120, 24.375) 1.25rem;
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 60rem;
+    margin-inline: auto;
+    padding: fluidSize(4, 2.5, 120, 24.375) fluidSize(4.5, 1.5, 120, 24.375);
+    border-radius: fluidSize(6, 2.5, 120, 24.375);
+    background: $color-bg-cream;
+    box-shadow: 0 0.5rem 0 $color-secondary-pale;
+    // サービスカードと同じ、左上の光沢
+    &::before {
+      content: "";
+      position: absolute;
+      top: 1.75rem;
+      left: 2.5rem;
+      width: 3rem;
+      height: 0.75rem;
+      border-radius: 1rem;
+      background: $color-secondary;
+      transform: rotate(-25deg);
+    }
+    @include mq(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 2.5rem;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @include mq(lg) {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: $color-primary;
+    font-family: "Lilita One", cursive;
+    font-size: fluidSize(4, 2.75, 120, 24.375);
+    line-height: 1;
+    letter-spacing: 0.05em;
+    span {
+      color: $color-text-dark;
+      font-family: "M PLUS Rounded 1c", sans-serif;
+      font-weight: 900;
+      font-size: fluidSize(1.125, 0.9375, 120, 24.375);
+      letter-spacing: 0.1em;
+    }
+  }
+
+  &__catch {
+    margin-top: 1.5rem;
+    color: $color-text-dark;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 900;
+    font-size: fluidSize(2, 1.375, 120, 24.375);
+    line-height: 1.5;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    @include mq(lg) { justify-content: flex-start; }
+    li {
+      padding: 0.25rem 0.875rem;
+      border-radius: 2rem;
+      background: $color-secondary;
+      color: $color-text-dark;
+      font-family: "M PLUS Rounded 1c", sans-serif;
+      font-weight: 900;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__text {
+    margin-top: 1rem;
+    color: $color-text-dark;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 500;
+    font-size: fluidSize(1, 0.875, 120, 24.375);
+    line-height: 1.8;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    padding: 0.875rem 2rem;
+    border-radius: 3rem;
+    background: $color-primary;
+    color: #fff;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 900;
+    font-size: fluidSize(1.125, 1, 120, 24.375);
+    text-decoration: none;
+    box-shadow: 0 0.25rem 0 darken($color-primary, 12%);
+    transition: transform 0.3s ease-in-out;
+    &:hover { transform: scale(1.06); color: #fff; }
+    &:focus-visible { outline: 3px solid $color-accent; outline-offset: 4px; }
+    span { font-size: 1.25em; line-height: 1; }
+  }
+
+  &__character {
+    flex: 0 0 auto;
+    width: fluidSize(17.5, 10, 120, 24.375);
+    height: auto;
+    animation: recruit-teaser-bounce 2.4s ease-in-out infinite;
+    @media (prefers-reduced-motion: reduce) { animation: none; }
+  }
+}
+
+@keyframes recruit-teaser-bounce {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-0.5rem) rotate(3deg); }
+}

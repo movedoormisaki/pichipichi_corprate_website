@@ -813,9 +813,41 @@
     width: 100%;
   }
 
-  // Form Container
+  // 公式LINEへの誘導
   &__contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: fluidSize(2, 1.5, 120, 24.375);
     width: 100%;
+    text-align: center;
+  }
+
+  &__lead {
+    color: #fff;
+    font-family: $font-body;
+    font-size: fluidSize(1.125, 0.9375, 120, 24.375);
+    font-weight: 800;
+    line-height: 1.9;
+  }
+
+  &__line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.25rem;
+    border-radius: 3rem;
+    background: #06c755;
+    color: #fff;
+    font-family: $font-body;
+    font-size: fluidSize(1.25, 1.0625, 120, 24.375);
+    font-weight: 900;
+    text-decoration: none;
+    box-shadow: 0 0.25rem 0 #04a045;
+    transition: transform 0.3s ease-in-out;
+    &:hover { transform: scale(1.06); color: #fff; }
+    &:focus-visible { outline: 3px solid $color-accent; outline-offset: 4px; }
+    img { width: 2rem; height: 2rem; }
   }
 }
 

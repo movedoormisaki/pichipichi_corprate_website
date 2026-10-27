@@ -4,7 +4,7 @@
 
 ## 対象
 
-- PC：Figma `3:11`（1440px）
+- PC：Figma `3:11` は使わない。モバイル専用で、PCでは中央に最大430px幅で表示し、外側はテーマ共通の背景（`var(--background)` ＋ `.bg`）
 - スマホ：Figma `3:12`（390px）
 - ファイル：https://www.figma.com/design/I4SG42iEqBoI5BsJiXxHRA
 
@@ -30,7 +30,7 @@ Figma上の写真・キャラクター画像はネットワーク制限により
 | `bento.png` | 募集条件の商品写真（背景除去） | `Asset/お弁当/提供画像・背景除去` |
 | `shishimame.png` | Q&A・CTAのキャラクター（背景除去） | `Asset/キャラクター/ししまめ・背景除去` |
 | `founder.jpg` | 代表写真（固定ページのアイキャッチ画像があればそちらを優先） | `代表写真 / 差し替え待ち` |
-| `icon-line.svg` | LINEアイコン。公式素材に差し替え推奨 | `Icon/LINE/公式` |
+| `icon-line.png` | LINEアイコン（公式素材） | `Icon/LINE/公式` |
 
 ## WordPressへの反映時
 
